@@ -9,3 +9,7 @@ cp -r vim ~/.vim
 cp vimrc ~/.vimrc
 cp alacritty.yml ~/.config/alacritty
 ```
+
+Any Desktop related files will be in the respective WM's git repo currently including [DWM](https://github.com/Aamon-Magnusson/AamonDwm), [Awesome](https://github.com/Aamon-Magnusson/AwesomeAamon), and [Qtile](https://github.com/Aamon-Magnusson/AamonQtile).
+
+It's not like these dotfiles plus a Desktop Environment will fill up an Arch install, cause I haven't done that yet.
