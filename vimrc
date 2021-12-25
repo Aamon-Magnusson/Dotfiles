@@ -1,3 +1,12 @@
+"     ___
+"    / _ \
+"   / /_\ \ __ _ _ __ ___   ___  _ __
+"   |  _  |/ _` | '_ ` _ \ / _ \| '_ \
+"   | | | | (_| | | | | | | (_) | | | |
+"   \_| |_/\__,_|_| |_| |_|\___/|_| |_|
+"
+"		GitHub: https://github.com/Aamon-Magnusson
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
