@@ -7,7 +7,7 @@ This is here to let me easily get my customization back on a new install. I don'
 ```
 cp -r vim ~/.vim
 cp vimrc ~/.vimrc
-cp alacritty.yml ~/.config/alacritty
+cp alacritty ~/.config/
 ```
 
 Any Desktop related files will be in the respective WM's git repo currently including [DWM](https://github.com/Aamon-Magnusson/AamonDwm), [Awesome](https://github.com/Aamon-Magnusson/AwesomeAamon), and [Qtile](https://github.com/Aamon-Magnusson/AamonQtile).
