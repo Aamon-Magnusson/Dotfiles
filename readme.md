@@ -5,8 +5,8 @@ This is here to let me easily get my customization back on a new install. I don'
 ## Commands
 
 ```
-cp -r vim ~/.vim
 cp vimrc ~/.vimrc
+cp bashrc ~/.bashrc
 cp alacritty ~/.config/
 ```
 
