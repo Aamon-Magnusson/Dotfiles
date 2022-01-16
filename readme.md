@@ -7,7 +7,9 @@ This is here to let me easily get my customization back on a new install. I don'
 ```
 cp vimrc ~/.vimrc
 cp bashrc ~/.bashrc
-cp alacritty ~/.config/
+cp -r alacritty ~/.config/
+cp zshrc ~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 ```
 
 Any Desktop related files will be in the respective WM's git repo currently including [DWM](https://github.com/Aamon-Magnusson/AamonDwm), [Awesome](https://github.com/Aamon-Magnusson/AwesomeAamon), and [Qtile](https://github.com/Aamon-Magnusson/AamonQtile).
