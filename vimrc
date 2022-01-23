@@ -18,4 +18,4 @@ set nu
 set scrolloff=8
 set syntax=python
 
-autocmd BufWritePost config.h,config.def.h !sudo make install
+autocmd BufWritePost config.h,config.def.h !sudo make install clean
