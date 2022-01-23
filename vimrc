@@ -7,8 +7,6 @@
 "
 "		GitHub: https://github.com/Aamon-Magnusson
 
-synatx on
-
 set binary
 set noerrorbells
 set tabstop=4
@@ -19,5 +17,7 @@ set relativenumber
 set nu
 set scrolloff=8
 set syntax=python
+
+syntax on
 
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
