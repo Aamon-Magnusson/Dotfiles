@@ -8,6 +8,7 @@ This is here to let me easily get my customization back on a new install. I don'
 cp vimrc ~/.vimrc
 cp bashrc ~/.bashrc
 cp -r alacritty ~/.config/
+cp -r qutebrowser ~/.config/
 cp zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 ```
