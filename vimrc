@@ -21,3 +21,6 @@ set syntax=python
 syntax on
 
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
+
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-v> "+P
