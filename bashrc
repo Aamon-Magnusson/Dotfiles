@@ -136,4 +136,4 @@ ex ()
   fi
 }
 
-exec zsh
+exec fish
