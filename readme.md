@@ -5,12 +5,9 @@ This is here to let me easily get my customization back on a new install. I don'
 ## Commands
 
 ```
-cp vimrc ~/.vimrc
-cp bashrc ~/.bashrc
-cp -r alacritty ~/.config/
-cp -r qutebrowser ~/.config/
-cp zshrc ~/.zshrc
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/Aamon-Magnusson/DotFiles
+cd DotFiles
+./setup.sh
 ```
 
 Any Desktop related files will be in the respective WM's git repo currently including [DWM](https://github.com/Aamon-Magnusson/AamonDwm), [Awesome](https://github.com/Aamon-Magnusson/AwesomeAamon), and [Qtile](https://github.com/Aamon-Magnusson/AamonQtile).
