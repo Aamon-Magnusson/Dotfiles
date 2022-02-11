@@ -8,5 +8,6 @@ end
 alias pacman="sudo pacman"
 alias ..="cd .."
 alias grep="grep --color=auto"
+alias ran="ranger"
 
 starship init fish | source
