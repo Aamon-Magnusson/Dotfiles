@@ -1,6 +1,7 @@
 #! /bin/bash
 
 cp vimrc ~/.vimrc
+cp -r vim ~/.vim
 cp bashrc ~/.bashrc
 cp -r alacritty ~/.config
 cp -r qutebrowser ~/.config

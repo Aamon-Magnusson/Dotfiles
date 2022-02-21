@@ -18,12 +18,20 @@ set nu
 set scrolloff=8
 set syntax=python
 
-syntax on
+packadd! dracula
+syntax enable
+colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
 
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
-"set spell spelllang=en_ca
-"set fdm=indent
+" Copy paste (Must be gvim)
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-p> "+P
 
-"vnoremap <C-c> "*y :let @+=@*<CR>
-"map <C-v> "+P
+" Enable spell check
+map <C-s> :set spell spelllang=en_ca<CR>
+map <C-a> :set nospell<CR>
+
+" Set fold 
+map <C-i> :set fdm=indent<CR>
