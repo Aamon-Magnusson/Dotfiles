@@ -1,8 +1,12 @@
 #! /bin/bash
 
-sudo cp $HOME/.vimrc vimrc
-sudo cp $HOME/.vim vim -r
-sudo cp $HOME/.bashrc bashrc
-sudo cp -r $HOME/.config/alacritty alacritty
-sudo cp -r $HOME/.config/qutebrowser qutebrowser
-sudo cp -r $HOME/.config/fish fish
+cp $HOME/.vimrc vimrc
+rm vim -r
+cp $HOME/.vim vim -r
+cp $HOME/.bashrc bashrc
+rm alacritty -r
+rm qutebrowser -r
+rm fish -r
+cp $HOME/.config/alacritty alacritty -r 
+cp $HOME/.config/qutebrowser qutebrowser -r 
+cp $HOME/.config/fish fish -r 

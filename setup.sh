@@ -1,9 +1,9 @@
 #! /bin/bash
 
-cp vimrc ~/.vimrc
-cp -r vim ~/.vim
-cp bashrc ~/.bashrc
-cp -r alacritty ~/.config
-cp -r qutebrowser ~/.config
-cp -r fish ~/.config
+sudo cp vimrc ~/.vimrc
+sudo cp vim ~/.vim -r
+sudo cp bashrc ~/.bashrc
+sudo cp alacritty ~/.config/ -r
+sudo cp qutebrowser ~/.config/ -r
+sudo cp fish ~/.config/ -r
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"

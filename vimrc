@@ -32,6 +32,7 @@ map <C-p> "+P
 " Enable spell check
 map <C-s> :set spell spelllang=en_ca<CR>
 map <C-a> :set nospell<CR>
+map <C-l> :set spell spelllang=fr_ca<CR>
 
 " Set fold 
 map <C-i> :set fdm=indent<CR>
