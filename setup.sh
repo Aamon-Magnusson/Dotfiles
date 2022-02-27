@@ -1,9 +1,14 @@
 #! /bin/bash
 
-sudo cp vimrc ~/.vimrc
-sudo cp vim ~/.vim -r
-sudo cp bashrc ~/.bashrc
-sudo cp alacritty ~/.config/ -r
-sudo cp qutebrowser ~/.config/ -r
-sudo cp fish ~/.config/ -r
+if [ $(which pacman) ];then
+	sudo pacman -S --needed gvim most
+fi
+
+cp vimrc ~/.vimrc
+cp vim ~/.vim -r
+cp bashrc ~/.bashrc
+cp alacritty ~/.config/ -r
+cp qutebrowser ~/.config/ -r
+cp fish ~/.config/ -r
+cp ranger ~/.config/ -r
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"

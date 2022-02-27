@@ -18,10 +18,13 @@ alias ..="cd .."
 alias grep="grep --color=auto"
 alias ran="ranger"
 
+export PAGER="most"
+
 # git aliases
 alias gc="git commit -a"
 alias gp="git push"
 alias gpl="git pull"
 alias gd="git diff"
+alias ga="git add ."
 
 starship init fish | source

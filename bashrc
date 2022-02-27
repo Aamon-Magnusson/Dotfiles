@@ -136,4 +136,6 @@ ex ()
   fi
 }
 
+export PAGER="most"
+
 exec fish
