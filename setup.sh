@@ -9,6 +9,8 @@ if [ $(which apt) ];then
 	sudo apt-get install gvim most fish ranger alacritty
 fi
 
+ln -s /run/media/$USER ~/Drives
+
 cp vimrc ~/.vimrc
 cp vim ~/.vim -r
 cp bashrc ~/.bashrc

@@ -13,18 +13,24 @@ else
     end
 end
 
-abbr p="sudo pacman"
-abbr ..="cd .."
-alias grep="grep --color=auto"
-abbr ran="ranger"
-
 export PAGER="most"
 
+abbr p "sudo pacman"
+alias grep "grep --color=auto"
+abbr ran "ranger"
+
+# movement commands
+abbr .. "cd .."
+abbr cdp "cd ~/Programming"
+abbr cdw "cd ~/Programming/AamonDwm"
+abbr cdf "cd ~/Programming/Dotfiles"
+abbr cdu "cd ~/Drives"
+
 # git aliases
-abbr gc="git commit -a"
-abbr gp="git push"
-abbr gpl="git pull"
-abbr gd="git diff"
-abbr ga="git add ."
+abbr gc "git commit -a"
+abbr gp "git push"
+abbr gpl "git pull"
+abbr gd "git diff"
+abbr ga "git add ."
 
 starship init fish | source
