@@ -1,7 +1,12 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim most
+	sudo pacman -S --needed gvim most alacritty qutebrowser fish ranger
+fi
+
+if [ $(which apt) ];then
+	sudo add-apt-repository ppa:aslatter/ppa
+	sudo apt-get install gvim most fish ranger alacritty
 fi
 
 cp vimrc ~/.vimrc
