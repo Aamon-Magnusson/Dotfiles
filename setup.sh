@@ -12,9 +12,10 @@ fi
 ln -s /run/media/$USER ~/Drives
 
 cp vimrc ~/.vimrc
-rm ~/.vim -r
+sudo rm ~/.vim -r
 cp vim ~/.vim -r
 cp bashrc ~/.bashrc
+echo "exec fish" >> ~/.zshrc
 cp alacritty ~/.config/ -r
 cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r
