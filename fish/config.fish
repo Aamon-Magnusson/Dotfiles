@@ -7,10 +7,49 @@ end
 
 function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
     if test "$argv" = !!
-    eval command sudo $history[1]
-else
-    command sudo $argv
+   		eval command sudo $history[1]
+	else
+    	command sudo $argv
     end
+end
+
+function ex --description "Function to detect compression to decompress the file"
+	if test -f "$argv"
+		switch $argv
+			case '*.tar.bz2'
+				tar xjf $argv
+			case '*.tar.gz'
+				tar xzf $argv
+			case '*.bz2'
+				bunzip2 $argv
+			case '*.rar'
+				unrar x $argv
+			case '*.gz'
+				gunzip $argv
+			case '*.tar'
+				tar xf $argv
+			case '*.tbz2'
+				tar xjf $argv
+			case '*.tgz'
+				tar xzf $argv
+			case '*.zip'
+				unzip $argv
+			case '*.Z'
+				uncompress $argv
+			case '*.7z'
+				7z x $argv
+			case '*.deb'
+				ar x $argv
+			case '*.tar.xz'
+				tar xf $argv
+			case '*.zst'
+				unzstd $argv
+			case '*'
+				echo "'$argv' cannot be extracted via ex()"
+		end
+	else
+		echo "'$argv' is not a valid file"
+	end
 end
 
 #export LESS_TERMCAP_mb=$'\E[01;32m'
