@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger
+	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger lsd
 fi
 
 if [ $(which apt) ];then

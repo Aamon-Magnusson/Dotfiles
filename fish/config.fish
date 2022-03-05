@@ -62,9 +62,16 @@ end
 #export LESS=-R
 
 alias grep "grep --color=auto"
+alias less "less --use-color"
 abbr p "sudo pacman"
 abbr ran "ranger"
 abbr v "vim"
+
+# ls aliases
+alias lsd "lsd --group-dirs first"
+abbr l "lsd"
+abbr ls "lsd"
+abbr "la" "lsd -al"
 
 # movement commands
 abbr .. "cd .."
