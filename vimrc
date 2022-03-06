@@ -7,10 +7,16 @@
 "
 "		GitHub: https://github.com/Aamon-Magnusson
 
+let mapleader = " "
+
+filetype plugin on
+"set nowrap
+set path+=**
+set wildmenu
+set nocompatible
 set binary
 set noerrorbells
 set tabstop=4
-"set nowrap
 set autoindent
 set incsearch
 set relativenumber
@@ -22,17 +28,24 @@ syntax enable
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 
+" Netrw settings (WIP)
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+let g:netrw_browse_split = 4
+"let g:netrw_winsize = 20
+
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
 " Copy paste (Must be gvim)
-vnoremap <C-c> "*y :let @+=@*<CR>
-map <C-p> "+P
+vnoremap <leader>c "*y :let @+=@*<CR>
+map <leader>v "+p
 
 " Enable spell check
-map <C-s> :set spell spelllang=en_ca<CR>
-map <C-a> :set nospell<CR>
-map <C-l> :set spell spelllang=fr_ca<CR>
+map <leader>s :set spell spelllang=en_ca<CR>
+map <leader>a :set nospell<CR>
+map <leader>f :set spell spelllang=fr_ca<CR>
 
 " Set fold 
-map <C-i> :set fdm=indent<CR>
+map <leader>i :set fdm=indent<CR>

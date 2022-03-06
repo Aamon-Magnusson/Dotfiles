@@ -17,7 +17,7 @@ cp vim ~/.vim -r
 sudo rm -r ~/.vim/pack/themes/start/dracula
 git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 cp bashrc ~/.bashrc
-echo "exec fish" >> ~/.zshrc
+[[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "exec fish" >> ~/.zshrc
 cp alacritty ~/.config/ -r
 cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r
