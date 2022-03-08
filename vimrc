@@ -49,3 +49,10 @@ map <leader>f :set spell spelllang=fr_ca<CR>
 
 " Set fold 
 map <leader>i :set fdm=indent<CR>
+
+" Open both quotes or brakets at once
+inoremap " ""<left>
+inoremap { {}<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap < <><left>
