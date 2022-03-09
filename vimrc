@@ -9,8 +9,9 @@
 
 let mapleader = " "
 
+" sets
 filetype plugin on
-"set nowrap
+set nowrap
 set path+=**
 set wildmenu
 set nocompatible
@@ -19,9 +20,10 @@ set noerrorbells
 set tabstop=4
 set autoindent
 set incsearch
+set hlsearch
+nnoremap <CR> :nohlsearch<CR><CR>
 set relativenumber
 set nu
-set scrolloff=15
 
 packadd! dracula
 syntax enable
@@ -44,8 +46,8 @@ map <leader>v "+p
 
 " Enable spell check
 map <leader>s :set spell spelllang=en_ca<CR>
-map <leader>a :set nospell<CR>
 map <leader>f :set spell spelllang=fr_ca<CR>
+map <leader>a :set nospell<CR>
 
 " Set fold 
 map <leader>i :set fdm=indent<CR>

@@ -1,8 +1,9 @@
 #! /bin/bash
 
 cp $HOME/.vimrc vimrc
-rm vim -r
+sudo rm vim -r
 cp $HOME/.vim vim -r
+sudo rm -r vim/pack/themes/start/
 cp $HOME/.bashrc bashrc
 rm alacritty -r
 rm qutebrowser -r
