@@ -40,6 +40,9 @@ let g:netrw_browse_split = 4
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
+" Auto center on insert mode
+autocmd InsertEnter * norm zz
+
 " Copy paste (Must be gvim)
 vnoremap <leader>c "*y :let @+=@*<CR>
 map <leader>v "+p
