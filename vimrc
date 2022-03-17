@@ -61,3 +61,23 @@ inoremap { {}<left>
 inoremap ( ()<left>
 inoremap [ []<left>
 inoremap < <><left>
+
+" Move around splits
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
+" jump to placehoder
+map <leader>j /<+++><CR>da<i
+
+" template keybindings
+nnoremap ,html :-1read $HOME/.vim/Templates/template.html<CR>/<+++><CR>da<i
+nnoremap ,c :-1read $HOME/.vim/Templates/template.c<CR>/<+++><CR>da<
+nnoremap ,py :-1read $HOME/.vim/Templates/template.py<CR>/<+++><CR>da<
+nnoremap ,sh :-1read $HOME/.vim/Templates/template.sh<CR>/<+++><CR>da<
+
+
+" TODO
+" html, c, python, bash... starting templates
+" like in https://www.youtube.com/watch?v=XA2WjJbmmoM&list=WL&index=13&t=3943s&ab_channel=thoughtbot
