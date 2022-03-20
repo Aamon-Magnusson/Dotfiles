@@ -34,8 +34,12 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_altv = 1
-let g:netrw_browse_split = 4
+"let g:netrw_browse_split = 4
 "let g:netrw_winsize = 20
+
+" Open netrw to aid in splits
+map <leader>h :Sex<CR>
+map <leader>n :Vex<CR>
 
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
