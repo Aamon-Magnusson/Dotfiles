@@ -125,7 +125,7 @@ set statusline=
 set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " The current mode
 set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, readonly, helpfile, preview
 set statusline+=%3*│                                     " Separator
-"set statusline+=%2*\ %Y\                                 " FileType
+set statusline+=%2*\ %Y\                                 " FileType
 set statusline+=%3*│                                     " Separator
 "set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
 "set statusline+=\ (%{&ff})                               " FileFormat (dos/unix..)
