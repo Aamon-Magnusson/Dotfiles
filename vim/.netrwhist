@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/aamonm/Programming/AamonDwm'
 let g:netrw_dirhist_6='/home/aamonm/.config/alacritty'
 let g:netrw_dirhist_5='/home/aamonm/.config'
 let g:netrw_dirhist_4='/home/aamonm'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_1='/home/aamonm/Programming/AamonDwm/Scripts'
 let g:netrw_dirhist_0='/home/aamonm/Programming/AamonDwm'
 let g:netrw_dirhist_9='/home/aamonm/Programming/Dotfiles/.git'
 let g:netrw_dirhist_8='/home/aamonm/Programming/AamonDwm/AamonDwm'
-let g:netrw_dirhist_7='/home/aamonm/Programming/AamonDwm'

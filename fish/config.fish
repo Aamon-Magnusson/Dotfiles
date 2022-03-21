@@ -65,7 +65,7 @@ alias grep "grep --color=auto"
 alias less "less --use-color"
 abbr p "sudo pacman"
 abbr ran "ranger"
-abbr v "vim"
+abbr v "nvim"
 
 # ls aliases
 alias lsd "lsd --group-dirs first"
