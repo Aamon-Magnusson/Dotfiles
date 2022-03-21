@@ -41,6 +41,10 @@ let g:netrw_altv = 1
 map <leader>h :Sex<CR>
 map <leader>n :Vex<CR>
 
+" Close all of vim even with splits open
+map <leader>c :wqa<CR>
+map <leader>x :qa!<CR>
+
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
@@ -83,5 +87,4 @@ nnoremap ,sh :-1read $HOME/.vim/Templates/template.sh<CR>/<+++><CR>da<
 
 
 " TODO
-" html, c, python, bash... starting templates
-" like in https://www.youtube.com/watch?v=XA2WjJbmmoM&list=WL&index=13&t=3943s&ab_channel=thoughtbot
+" Give myself notes for folds (Hard to remember keys)
