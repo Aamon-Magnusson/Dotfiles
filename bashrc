@@ -145,4 +145,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
+export VISUAL=vim;
+export EDITOR=vim;
+
 exec fish

@@ -79,6 +79,7 @@ abbr cdp "cd ~/Programming"
 abbr cdw "cd ~/Programming/AamonDwm"
 abbr cdf "cd ~/Programming/Dotfiles"
 abbr cdu "cd ~/Drives"
+abbr cdc "cd ~/.config"
 
 # git aliases
 abbr gc "git commit -a"

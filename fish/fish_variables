@@ -2,6 +2,7 @@
 # VERSION: 3.0
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr__2E_2E_:cd\x20\x2e\x2e
+SETUVAR _fish_abbr_cdc:cd\x20\x7e/\x2econfig
 SETUVAR _fish_abbr_cdf:cd\x20\x7e/Programming/Dotfiles
 SETUVAR _fish_abbr_cdp:cd\x20\x7e/Programming
 SETUVAR _fish_abbr_cdu:cd\x20\x7e/Drives
