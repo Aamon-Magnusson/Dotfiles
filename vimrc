@@ -78,6 +78,12 @@ nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 
+" resize splits
+noremap <silent> <C-Left> :vertical resize +3<CR>
+noremap <silent> <C-Right> :vertical resize -3<CR>
+noremap <silent> <C-Up> :resize +3<CR>
+noremap <silent> <C-Down> :resize -3<CR>
+
 " jump to placehoder
 map <leader>j /<+++><CR>da<i
 
