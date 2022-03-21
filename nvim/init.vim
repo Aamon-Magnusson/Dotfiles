@@ -53,7 +53,7 @@ autocmd BufWritePost config.h,config.def.h !sudo make install clean
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
 
-" Copy paste (Must be gvim)
+" Copy paste 
 vnoremap <leader>c "*y :let @+=@*<CR>
 map <leader>v "+p
 
@@ -82,10 +82,10 @@ nmap <C-l> <C-w>l
 map <leader>j /<+++><CR>da<i
 
 " template keybindings
-nnoremap ,html :-1read $HOME/.vim/Templates/template.html<CR>/<+++><CR>da<i
-nnoremap ,c :-1read $HOME/.vim/Templates/template.c<CR>/<+++><CR>da<
-nnoremap ,py :-1read $HOME/.vim/Templates/template.py<CR>/<+++><CR>da<
-nnoremap ,sh :-1read $HOME/.vim/Templates/template.sh<CR>/<+++><CR>da<
+nnoremap ,html :-1read $HOME/.config/nvim/Templates/template.html<CR>/<+++><CR>da<i
+nnoremap ,c :-1read $HOME/.config/nvim/Templates/template.c<CR>/<+++><CR>da<
+nnoremap ,py :-1read $HOME/.config/nvim/Templates/template.py<CR>/<+++><CR>da<
+nnoremap ,sh :-1read $HOME/.config/nvim/Templates/template.sh<CR>/<+++><CR>da<
 
 " colored status bar (WIP)
 " status bar colors
