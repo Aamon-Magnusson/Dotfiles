@@ -19,6 +19,8 @@ set binary
 set noerrorbells
 set tabstop=4
 set autoindent
+set ignorecase
+set smartcase
 set incsearch
 set hlsearch
 nnoremap <CR> :nohlsearch<CR><CR>
