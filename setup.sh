@@ -5,8 +5,7 @@ if [ $(which pacman) ];then
 fi
 
 if [ $(which apt) ];then
-	sudo add-apt-repository ppa:aslatter/ppa
-	sudo apt-get install gvim most fish ranger alacritty
+	sudo apt-get install vim fish neovim
 fi
 
 ln -s /run/media/$USER ~/Drives

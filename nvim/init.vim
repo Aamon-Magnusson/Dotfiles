@@ -18,6 +18,7 @@ set nocompatible
 set binary
 set noerrorbells
 set tabstop=4
+set shiftwidth=4
 set autoindent
 set ignorecase
 set smartcase
@@ -54,6 +55,9 @@ autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
+
+" Make Y work the same as other upercase chars
+nmap Y y$
 
 " Copy paste 
 vnoremap <leader>c "*y :let @+=@*<CR>

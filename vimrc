@@ -18,6 +18,7 @@ set nocompatible
 set binary
 set noerrorbells
 set tabstop=4
+set shiftwidth=4
 set autoindent
 set ignorecase
 set smartcase
@@ -54,6 +55,9 @@ autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
+
+" Make Y work the same as other upercase chars
+nmap Y y$
 
 " Copy paste (Must be gvim)
 vnoremap <leader>c "*y :let @+=@*<CR>
@@ -95,7 +99,7 @@ nnoremap ,c :-1read $HOME/.vim/Templates/template.c<CR>/<+++><CR>da<
 nnoremap ,py :-1read $HOME/.vim/Templates/template.py<CR>/<+++><CR>da<
 nnoremap ,sh :-1read $HOME/.vim/Templates/template.sh<CR>/<+++><CR>da<
 
-" colored status bar (WIP)
+" colored status bar
 " status bar colors
 au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
 au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
