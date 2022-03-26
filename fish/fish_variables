@@ -15,7 +15,6 @@ SETUVAR _fish_abbr_gpl:git\x20pull
 SETUVAR _fish_abbr_gs:git\x20status
 SETUVAR _fish_abbr_l:lsd
 SETUVAR _fish_abbr_la:lsd\x20\x2dal
-SETUVAR _fish_abbr_ls:lsd
 SETUVAR _fish_abbr_p:sudo\x20pacman
 SETUVAR _fish_abbr_ran:ranger
 SETUVAR _fish_abbr_v:nvim

@@ -1,11 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger lsd neovim
-fi
-
-if [ $(which apt) ];then
-	sudo apt-get install vim fish neovim
+	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger lsd neovim fd fzf
 fi
 
 ln -s /run/media/$USER ~/Drives

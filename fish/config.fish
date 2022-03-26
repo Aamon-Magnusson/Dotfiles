@@ -52,6 +52,46 @@ function ex --description "Function to detect compression to decompress the file
 	end
 end
 
+function vv
+	fzf | xargs nvim
+end
+
+function vh
+	cd ~/ && fzf | xargs nvim
+end
+
+function vc
+	cd ~/.config && fzf | xargs nvim && cd -
+end
+
+function vp
+	cd ~/Programming && fzf | xargs nvim && cd -
+end
+
+function vu
+	cd ~/Drives && fzf | xargs nvim && cd -
+end
+
+function c
+	cd (fd --type d | fzf)
+end
+
+function ch
+	cd ~/ && cd (fd --type d | fzf)
+end
+
+function cc
+	cd ~/.config && cd (fd --type d | fzf)
+end
+
+function cpr # realized that cp is a command
+	cd ~/Programming && cd (fd --type d | fzf)
+end
+
+function cu
+	cd ~/Drives && cd (fd --type d | fzf)
+end
+
 #export LESS_TERMCAP_mb=$'\E[01;32m'
 #export LESS_TERMCAP_md=$'\E[01;32m'
 #export LESS_TERMCAP_me=$'\E[0m'
@@ -70,7 +110,7 @@ abbr v "nvim"
 # ls aliases
 alias lsd "lsd --group-dirs first"
 abbr l "lsd"
-abbr ls "lsd"
+#abbr ls "lsd" # trying to force myself to use just l
 abbr "la" "lsd -al"
 
 # movement commands
