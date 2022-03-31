@@ -57,7 +57,7 @@ function vv
 end
 
 function vh
-	cd ~/ && fzf | xargs nvim
+	cd ~/ && fzf | xargs nvim && cd -
 end
 
 function vc

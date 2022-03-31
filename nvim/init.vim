@@ -24,24 +24,34 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nnoremap <CR> :nohlsearch<CR><CR>
 set relativenumber
 set nu
 set lazyredraw
 set showmode
+set showmatch
 
-packadd! dracula
-syntax enable
-colorscheme dracula
-hi Normal guibg=NONE ctermbg=NONE
+" Might be too distracting, but I'll try it out
+set cursorline
+set cursorcolumn
 
-" Netrw settings (WIP)
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_altv = 1
-"let g:netrw_browse_split = 4
-"let g:netrw_winsize = 20
+" Mouse support (Hopefully I won't use it much)
+set mouse=a
 
+" Auto commands
+" Auto compile suckless programs
+autocmd BufWritePost config.h,config.def.h !sudo make install clean
+
+" Auto command to clear white space
+autocmd BufWritePre * :%s/\s\+$//e
+
+" clean /r from file
+"autocmd BufReadPost * :%s///g<CR>
+nmap <leader>r :%s///g<CR> " I'm trying to make this an autocmd but not yet ready
+
+" Auto center on insert mode
+autocmd InsertEnter * norm zz
+
+" Keybindings
 " Open netrw to aid in splits
 map <leader>h :Sex<CR>
 map <leader>n :Vex<CR>
@@ -50,16 +60,10 @@ map <leader>n :Vex<CR>
 map <leader>c :wqa<CR>
 map <leader>x :qa!<CR>
 
-" Auto compile suckless programs
-autocmd BufWritePost config.h,config.def.h !sudo make install clean
-
-" Auto center on insert mode
-autocmd InsertEnter * norm zz
-
 " Make Y work the same as other upercase chars
 nmap Y y$
 
-" Copy paste 
+" Copy paste
 vnoremap <leader>c "*y :let @+=@*<CR>
 map <leader>v "+p
 
@@ -68,7 +72,7 @@ map <leader>s :set spell spelllang=en_ca<CR>
 map <leader>f :set spell spelllang=fr_ca<CR>
 map <leader>a :set nospell<CR>
 
-" Set fold 
+" Set fold
 map <leader>i :set fdm=indent<CR>
 
 " Open both quotes or brakets at once
@@ -99,60 +103,23 @@ nnoremap ,c :-1read $HOME/.config/nvim/Templates/template.c<CR>/<+++><CR>da<
 nnoremap ,py :-1read $HOME/.config/nvim/Templates/template.py<CR>/<+++><CR>da<
 nnoremap ,sh :-1read $HOME/.config/nvim/Templates/template.sh<CR>/<+++><CR>da<
 
-" clean /r from file
-nmap <leader>r :%s///g<CR>
+" Remove highlights from searches
+nnoremap <CR> :nohlsearch<CR><CR>
 
-" colored status bar (WIP)
-" status bar colors
-au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=magenta
-au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
-hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
+" Themeing
+packadd! dracula
+syntax enable
+colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
+
+" Netrw settings (WIP)
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_altv = 1
+"let g:netrw_browse_split = 4
+"let g:netrw_winsize = 20
 
 " Status line
-" default: set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
-
-" Status Line Custom
-let g:currentmode={
-    \ 'n'  : 'Normal',
-    \ 'no' : 'Normal·Operator Pending',
-    \ 'v'  : 'Visual',
-    \ 'V'  : 'V·Line',
-    \ "\<C-V>" : 'V·Block',
-    \ 's'  : 'Select',
-    \ 'S'  : 'S·Line',
-    \ '^S' : 'S·Block',
-    \ 'i'  : 'Insert',
-    \ 'R'  : 'Replace',
-    \ 'Rv' : 'V·Replace',
-    \ 'c'  : 'Command',
-    \ 'cv' : 'Vim Ex',
-    \ 'ce' : 'Ex',
-    \ 'r'  : 'Prompt',
-    \ 'rm' : 'More',
-    \ 'r?' : 'Confirm',
-    \ '!'  : 'Shell',
-    \ 't'  : 'Terminal'
-    \}
-
-set laststatus=2
-set noshowmode
-set statusline=
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}\  " The current mode
-set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, readonly, helpfile, preview
-set statusline+=%3*│                                     " Separator
-set statusline+=%2*\ %Y\                                 " FileType
-set statusline+=%3*│                                     " Separator
-"set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
-"set statusline+=\ (%{&ff})                               " FileFormat (dos/unix..)
-set statusline+=%=                                       " Right Side
-set statusline+=%2*\ col:\ %02v\                         " Colomn number
-set statusline+=%3*│                                     " Separator
-set statusline+=%1*\ ln:\ %02l/%L\ (%3p%%)\              " Line number / total lines, percentage of document
-set statusline+=%0*\ %n\                                 " Buffer number
-
-hi User1 ctermfg=007 ctermbg=239 guibg=#4e4e4e guifg=#adadad
-hi User2 ctermfg=007 ctermbg=236 guibg=#303030 guifg=#adadad
-hi User3 ctermfg=236 ctermbg=236 guibg=#303030 guifg=#303030
-hi User4 ctermfg=239 ctermbg=239 guibg=#4e4e4e guifg=#4e4e4e
+source ~/.config/nvim/statusLine.vim
 
 " TODO
