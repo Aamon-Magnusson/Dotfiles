@@ -9,7 +9,9 @@
 
 let mapleader = " "
 
+" =========== "
 " sets
+" =========== "
 filetype plugin on
 set nowrap
 set path+=**
@@ -37,7 +39,9 @@ set cursorcolumn
 " Mouse support (Hopefully I won't use it much)
 set mouse=a
 
+" =========== "
 " Auto commands
+" =========== "
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
@@ -51,7 +55,9 @@ nmap <leader>r :%s///g<CR> " I'm trying to make this an autocmd but not yet rea
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
 
+" =========== "
 " Keybindings
+" =========== "
 " Open netrw to aid in splits
 map <leader>h :Sex<CR>
 map <leader>n :Vex<CR>
@@ -71,6 +77,24 @@ map <leader>v "+p
 map <leader>s :set spell spelllang=en_ca<CR>
 map <leader>f :set spell spelllang=fr_ca<CR>
 map <leader>a :set nospell<CR>
+
+" Fix last spelling error
+function! FixLastSpellingError()
+  normal! mm[s1z=`m"
+endfunction
+nnoremap <leader>sp :call FixLastSpellingError()<cr>
+
+" Move line to the top of a paragraph
+function! MoveLineToTopOfList()
+  normal! kmmjdd{p`m
+endfunction
+nnoremap <leader>l1 :call MoveLineToTopOfList()<cr>
+
+" Move line to the bottom of a paragraph
+function! MoveLineToBottomOfList()
+  normal! kmmjdd}P`m
+endfunction
+nnoremap <leader>l0 :call MoveLineToBottomOfList()<cr>
 
 " Set fold
 map <leader>i :set fdm=indent<CR>
@@ -95,7 +119,7 @@ noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
 " jump to placehoder
-map <leader>j /<+++><CR>da<i
+map <leader>p /<+++><CR>ca<
 
 " template keybindings
 nnoremap ,html :-1read $HOME/.config/nvim/Templates/template.html<CR>/<+++><CR>da<i
@@ -104,9 +128,24 @@ nnoremap ,py :-1read $HOME/.config/nvim/Templates/template.py<CR>/<+++><CR>da<
 nnoremap ,sh :-1read $HOME/.config/nvim/Templates/template.sh<CR>/<+++><CR>da<
 
 " Remove highlights from searches
-nnoremap <CR> :nohlsearch<CR><CR>
+nnoremap <CR> :nohlsearch<CR>
 
+" Moving lines up or down in every mode
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+inoremap <C-j> <esc>:m .+1<CR>==i
+inoremap <C-k> <esc>:m .-2<CR>==i
+nnoremap <leader>j :m .+1<CR>==
+nnoremap <leader>k :m .-2<CR>==
+
+" Keep it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" =========== "
 " Themeing
+" =========== "
+" Dracula color scheme
 packadd! dracula
 syntax enable
 colorscheme dracula
