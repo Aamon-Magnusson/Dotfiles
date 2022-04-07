@@ -53,8 +53,8 @@ autocmd BufWritePost config.h,config.def.h !sudo make install clean
 autocmd BufWritePre * :%s/\s\+$//e
 
 " clean /r from file
-autocmd BufReadPost * :%s/\r//g
-"nmap <leader>r :%s/\r//g<CR> " I'm trying to make this an autocmd but not yet ready
+"autocmd BufReadPost * :%s/\r//g
+nmap <leader>r :%s/\r//g<CR> " I'm trying to make this an autocmd but not yet ready
 
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
