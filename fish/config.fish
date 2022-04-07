@@ -5,6 +5,10 @@ end
 function fish_greeting
 end
 
+function fish_user_key_bindings
+  fish_vi_key_bindings
+end
+
 function sudo --description "Replacement for Bash 'sudo !!' command to run last command using sudo."
     if test "$argv" = !!
    		eval command sudo $history[1]
