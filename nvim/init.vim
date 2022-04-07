@@ -49,12 +49,12 @@ set mouse=a
 " Auto compile suckless programs
 autocmd BufWritePost config.h,config.def.h !sudo make install clean
 
-" Auto command to clear white space
+" Auto command to clear trailing white space
 autocmd BufWritePre * :%s/\s\+$//e
 
 " clean /r from file
-"autocmd BufReadPost * :%s///g<CR>
-nmap <leader>r :%s///g<CR> " I'm trying to make this an autocmd but not yet ready
+autocmd BufReadPost * :%s/\r//g
+"nmap <leader>r :%s/\r//g<CR> " I'm trying to make this an autocmd but not yet ready
 
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
@@ -67,8 +67,8 @@ map <leader>h :Sex<CR>
 map <leader>n :Vex!<CR>
 
 " Close all of vim even with splits open
-map <leader>c :wqa<CR>
-map <leader>x :qa!<CR>
+map <leader>q :wqa<CR>
+map <leader>Q :qa!<CR>
 
 " Make Y work the same as other upercase chars
 nmap Y y$
@@ -78,15 +78,15 @@ vnoremap <leader>c "*y :let @+=@*<CR>
 map <leader>v "+p
 
 " Enable spell check
-map <leader>s :set spell spelllang=en_ca<CR>
-map <leader>f :set spell spelllang=fr_ca<CR>
-map <leader>a :set nospell<CR>
+map <leader>se :set spell spelllang=en_ca<CR>
+map <leader>sf :set spell spelllang=fr_ca<CR>
+map <leader>so :set nospell<CR>
 
 " Fix last spelling error
 function! FixLastSpellingError()
   normal! mm[s1z=`m"
 endfunction
-nnoremap <leader>sp :call FixLastSpellingError()<cr>
+nnoremap <leader>sl :call FixLastSpellingError()<cr>
 
 " Move line to the top of a paragraph
 function! MoveLineToTopOfList()
@@ -148,6 +148,20 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *zzzv
 nnoremap # #zzzv
+
+" keep area selected when shifting
+vnoremap < <gv
+vnoremap > >gv
+
+" Quickfix list
+noremap <leader>cg :vimgrep //g **/*<CR>
+vnoremap <leader>cg y:vimgrep /<C-r>"/g **/*<CR>
+noremap <leader>cf :.cc<CR>
+noremap <leader>co :copen<CR>
+noremap <leader>cc :ccl<CR>
+noremap <leader>cm :set modifiable<CR>
+noremap <leader>cn :cnext<CR>zz
+noremap <leader>cN :cprev<CR>zz
 
 " =========== "
 " Themeing
