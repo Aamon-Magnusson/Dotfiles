@@ -4,6 +4,26 @@ au InsertEnter * hi statusline guifg=black guibg=#d7afff ctermfg=black ctermbg=m
 au InsertLeave * hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 hi statusline guifg=black guibg=#8fbfdc ctermfg=black ctermbg=cyan
 
+" Word count function
+let g:word_count="<unknown>"
+function WordCount()
+	return g:word_count
+endfunction
+function UpdateWordCount()
+	let lnum = 1
+	let n = 0
+	while lnum <= line('$')
+		let n = n + len(split(getline(lnum)))
+		let lnum = lnum + 1
+	endwhile
+	let g:word_count = n
+endfunction
+
+set updatetime=1000
+augroup WordCounter
+	au! CursorHold,CursorHoldI * call UpdateWordCount()
+augroup END
+
 " Status line
 " default: set statusline=%f\ %h%w%m%r\ %=%(%l,%c%V\ %=\ %P%)
 
@@ -38,9 +58,10 @@ set statusline+=%1*\ %<%F%m%r%h%w\                       " File path, modified, 
 set statusline+=%3*│                                     " Separator
 set statusline+=%2*\ %Y\                                 " FileType
 set statusline+=%3*│                                     " Separator
-"set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
+set statusline+=%2*\ %{''.(&fenc!=''?&fenc:&enc).''}     " Encoding
 "set statusline+=\ (%{&ff})                               " FileFormat (dos/unix..)
 set statusline+=%=                                       " Right Side
+set statusline+=\ %{WordCount()}\ words,
 set statusline+=%2*\ col:\ %02v\                         " Colomn number
 set statusline+=%3*│                                     " Separator
 set statusline+=%1*\ ln:\ %02l/%L\ (%3p%%)\              " Line number / total lines, percentage of document

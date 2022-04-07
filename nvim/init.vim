@@ -32,6 +32,10 @@ set lazyredraw
 set showmode
 set showmatch
 
+" Make splits go to "slave side"
+set splitbelow
+set splitright
+
 " Might be too distracting, but I'll try it out
 set cursorline
 set cursorcolumn
@@ -60,7 +64,7 @@ autocmd InsertEnter * norm zz
 " =========== "
 " Open netrw to aid in splits
 map <leader>h :Sex<CR>
-map <leader>n :Vex<CR>
+map <leader>n :Vex!<CR>
 
 " Close all of vim even with splits open
 map <leader>c :wqa<CR>
@@ -88,16 +92,17 @@ nnoremap <leader>sp :call FixLastSpellingError()<cr>
 function! MoveLineToTopOfList()
   normal! kmmjdd{p`m
 endfunction
-nnoremap <leader>l1 :call MoveLineToTopOfList()<cr>
+nnoremap <leader>l0 :call MoveLineToTopOfList()<cr>
 
 " Move line to the bottom of a paragraph
 function! MoveLineToBottomOfList()
   normal! kmmjdd}P`m
 endfunction
-nnoremap <leader>l0 :call MoveLineToBottomOfList()<cr>
+nnoremap <leader>l9 :call MoveLineToBottomOfList()<cr>
 
 " Set fold
 map <leader>i :set fdm=indent<CR>
+map <leader>I :set fdm=syntax<CR>
 
 " Open both quotes or brakets at once
 inoremap " ""<left>
@@ -141,6 +146,8 @@ nnoremap <leader>k :m .-2<CR>==
 " Keep it centered
 nnoremap n nzzzv
 nnoremap N Nzzzv
+nnoremap * *zzzv
+nnoremap # #zzzv
 
 " =========== "
 " Themeing
@@ -149,7 +156,7 @@ nnoremap N Nzzzv
 packadd! dracula
 syntax enable
 colorscheme dracula
-hi Normal guibg=NONE ctermbg=NONE
+"hi Normal guibg=NONE ctermbg=NONE
 
 " Netrw settings (WIP)
 let g:netrw_banner = 0

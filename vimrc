@@ -68,7 +68,7 @@ map <leader>s :set spell spelllang=en_ca<CR>
 map <leader>f :set spell spelllang=fr_ca<CR>
 map <leader>a :set nospell<CR>
 
-" Set fold 
+" Set fold
 map <leader>i :set fdm=indent<CR>
 
 " Open both quotes or brakets at once
