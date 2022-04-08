@@ -59,6 +59,12 @@ nmap <leader>r :%s/\r//g<CR> " I'm trying to make this an autocmd but not yet re
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
 
+" Open netrw if no files are given
+augroup ProjectDrawer
+    autocmd!
+    autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
+
 " =========== "
 " Keybindings
 " =========== "
