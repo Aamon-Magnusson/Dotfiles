@@ -65,6 +65,12 @@ augroup ProjectDrawer
     autocmd VimEnter * if argc() == 0 | Explore! | endif
 augroup END
 
+" Auto-resize splits when Vim gets resized.
+autocmd VimResized * wincmd =
+
+" Update a buffer's contents on focus if it changed outside of Vim.
+au FocusGained,BufEnter * :checktime
+
 " =========== "
 " Keybindings
 " =========== "
@@ -168,6 +174,14 @@ noremap <leader>cc :ccl<CR>
 noremap <leader>cm :set modifiable<CR>
 noremap <leader>cn :cnext<CR>zz
 noremap <leader>cN :cprev<CR>zz
+
+" Press * to search for the term under the cursor or a visual selection and
+" then press a key below to replace all instances of it in the current file.
+nnoremap <Leader>f :%s///g<Left><Left>
+nnoremap <Leader>fc :%s///gc<Left><Left><Left>
+
+" Source Vim config file.
+map <Leader>sv :source $MYVIMRC<CR>
 
 " =========== "
 " Themeing

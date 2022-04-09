@@ -107,6 +107,7 @@ end
 
 alias grep "grep --color=auto"
 alias less "less --use-color"
+alias df "df --human-readable"
 abbr p "sudo pacman"
 abbr ran "ranger"
 abbr v "nvim"
