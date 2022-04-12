@@ -16,6 +16,8 @@ filetype plugin on
 set nowrap
 set path+=**
 set wildmenu
+set complete+=kspell
+set completeopt=menuone
 set nocompatible
 set binary
 set noerrorbells
@@ -54,7 +56,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " clean /r from file
 "autocmd BufReadPost * :%s/\r//g
-nmap <leader>r :%s/\r//g<CR> " I'm trying to make this an autocmd but not yet ready
+" I'm trying to make this an autocmd but not yet ready
+nmap <leader>r :%s/\r//g<CR>
 
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
@@ -138,6 +141,9 @@ noremap <silent> <C-Down> :resize -3<CR>
 " jump to placehoder
 map <leader>p /<+++><CR>ca<
 
+" Place placeholder
+inoremap ;p <+++>
+
 " template keybindings
 nnoremap ,html :-1read $HOME/.config/nvim/Templates/template.html<CR>/<+++><CR>da<i
 nnoremap ,c :-1read $HOME/.config/nvim/Templates/template.c<CR>/<+++><CR>da<
@@ -177,11 +183,33 @@ noremap <leader>cN :cprev<CR>zz
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
-nnoremap <Leader>f :%s///g<Left><Left>
-nnoremap <Leader>fc :%s///gc<Left><Left><Left>
+nnoremap <Leader>f :%s///g<Left><Left><Left>
+nnoremap <Leader>fc :%s///gc<Left><Left><Left><Left>
+nnoremap <Leader>F :%s///g<Left><Left>
+nnoremap <Leader>Fc :%s///gc<Left><Left><Left>
 
 " Source Vim config file.
 map <Leader>sv :source $MYVIMRC<CR>
+
+" Navigate the complete menu items like CTRL+n / CTRL+p would.
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+
+" Select the complete menu item like CTRL+y would.
+inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
+inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
+
+" Cancel the complete menu item like CTRL+e would.
+inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
+
+" Markdown keymaps
+autocmd FileType markdown noremap <leader>m i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+"header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
+autocmd FileType markdown inoremap ,i ![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
+autocmd FileType markdown inoremap ,l [](<+++>)<Space><+++><Esc>F]i
+
+" Save file as sudo when no sudo permissions
+cmap w!! w !sudo tee > /dev/null %
 
 " =========== "
 " Themeing
