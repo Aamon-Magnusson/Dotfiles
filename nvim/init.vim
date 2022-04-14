@@ -33,6 +33,9 @@ set nu
 set lazyredraw
 set showmode
 set showmatch
+set noswapfile
+set nobackup
+set hidden
 
 " Make splits go to "slave side"
 set splitbelow
@@ -194,19 +197,17 @@ map <Leader>sv :source $MYVIMRC<CR>
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
-
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
 inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
-
 " Cancel the complete menu item like CTRL+e would.
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Markdown keymaps
-autocmd FileType markdown noremap <leader>m i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+autocmd FileType markdown noremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
-autocmd FileType markdown inoremap ,i ![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
-autocmd FileType markdown inoremap ,l [](<+++>)<Space><+++><Esc>F]i
+autocmd FileType markdown noremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
+autocmd FileType markdown noremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
