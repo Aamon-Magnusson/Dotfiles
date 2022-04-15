@@ -16,3 +16,8 @@ cp $HOME/.config/fish fish -r
 cp $HOME/.config/ranger ranger -r
 cp $HOME/.config/nvim nvim -r
 sudo rm -rf nvim/pack/themes/start/
+
+# Create windows nvim config
+cp nvim windowsNvim -r
+sed -i "s ~/.config/nvim/ ~\AppData\Local\nvim\ g" windowsNvim/init.vim
+sed -i "s Templates/ Templates\ g" windowsNvim/init.vim
