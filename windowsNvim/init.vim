@@ -148,10 +148,10 @@ map <leader>p /<+++><CR>ca<
 inoremap ;p <+++>
 
 " template keybindings
-nnoremap ,html :-1read $HOME/.config/nvim/Templates/template.html<CR>/<+++><CR>da<i
-nnoremap ,c :-1read $HOME/.config/nvim/Templates/template.c<CR>/<+++><CR>da<
-nnoremap ,py :-1read $HOME/.config/nvim/Templates/template.py<CR>/<+++><CR>da<
-nnoremap ,sh :-1read $HOME/.config/nvim/Templates/template.sh<CR>/<+++><CR>da<
+nnoremap ,html :-1read ~\AppData\Local\nvim\Templates\template.html<CR>/<+++><CR>da<i
+nnoremap ,c :-1read ~\AppData\Local\nvim\Templates\template.c<CR>/<+++><CR>da<
+nnoremap ,py :-1read ~\AppData\Local\nvim\Templates\template.py<CR>/<+++><CR>da<
+nnoremap ,sh :-1read ~\AppData\Local\nvim\Templates\template.sh<CR>/<+++><CR>da<
 
 " Remove highlights from searches
 nnoremap <CR> :nohlsearch<CR>
@@ -229,6 +229,6 @@ let g:netrw_altv = 1
 "let g:netrw_winsize = 20
 
 " Status line
-source $HOME/.config/nvim/statusLine.vim
+source ~\AppData\Local\nvim\statusLine.vim
 
 " TODO
