@@ -285,6 +285,6 @@ source $HOME/.config/nvim/telescope.vim
 lua require('user.auto-pandoc')
 source $HOME/.config/nvim/markdown-preview.vim
 source $HOME/.config/nvim/goyo.vim
-source $HOME/.config/nvim/comment.vim
+lua require('user.comment')
 source $HOME/.config/nvim/alpha.vim
 source $HOME/.config/nvim/which-key.vim

@@ -285,6 +285,6 @@ source %userprofile%\AppData\Local\nvim\telescope.vim
 lua require('user.auto-pandoc')
 source %userprofile%\AppData\Local\nvim\markdown-preview.vim
 source %userprofile%\AppData\Local\nvim\goyo.vim
-source %userprofile%\AppData\Local\nvim\comment.vim
+lua require('user.comment')
 source %userprofile%\AppData\Local\nvim\alpha.vim
 source %userprofile%\AppData\Local\nvim\which-key.vim
