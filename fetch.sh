@@ -15,6 +15,7 @@ cp $HOME/.config/qutebrowser qutebrowser -r
 cp $HOME/.config/fish fish -r
 cp $HOME/.config/ranger ranger -r
 cp $HOME/.config/nvim nvim -r
+rm nvim/autoload -r
 sudo rm -rf nvim/pack/themes/start/
 
 # Create windows nvim config

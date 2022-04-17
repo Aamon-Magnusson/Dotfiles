@@ -17,7 +17,7 @@ set nowrap
 set path+=**
 set wildmenu
 set complete+=kspell
-set completeopt=menuone
+set completeopt=menuone,noselect
 set nocompatible
 set binary
 set noerrorbells
@@ -184,18 +184,20 @@ noremap <leader>cm :set modifiable<CR>
 noremap <leader>cn :cnext<CR>zz
 noremap <leader>cN :cprev<CR>zz
 
+" type in original string then right arrow for new string
+nnoremap <Leader>fr :%s///g<Left><Left><Left>
+nnoremap <Leader>fc :%s///gc<Left><Left><Left><Left>
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
-nnoremap <Leader>f :%s///g<Left><Left><Left>
-nnoremap <Leader>fc :%s///gc<Left><Left><Left><Left>
-nnoremap <Leader>F :%s///g<Left><Left>
-nnoremap <Leader>Fc :%s///gc<Left><Left><Left>
+nnoremap <Leader>fR :%s///g<Left><Left>
+nnoremap <Leader>fC :%s///gc<Left><Left><Left>
 
 " Source Vim config file.
 map <Leader>sv :source $MYVIMRC<CR>
 
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <tab> pumvisible() ? "<C-n>" :"<tab>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
@@ -231,4 +233,29 @@ let g:netrw_altv = 1
 " Status line
 source $HOME/.config/nvim/statusLine.vim
 
-" TODO
+" =========== "
+" Plugins
+" =========== "
+"
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin()
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/nvim-compe'
+	Plug 'nvim-lua/plenary.nvim'
+	Plug 'nvim-telescope/telescope.nvim'
+call plug#end()
+
+lua require('user.lsp-config')
+lua require('user.compe')
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>tf <cmd>Telescope find_files<cr>
+nnoremap <leader>tg <cmd>Telescope live_grep<cr>
+nnoremap <leader>tb <cmd>Telescope buffers<cr>
+nnoremap <leader>th <cmd>Telescope help_tags<cr>
