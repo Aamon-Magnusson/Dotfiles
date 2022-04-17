@@ -11,7 +11,7 @@ sudo rm ~/.vim -r
 sudo rm -r ~/.vim/pack/themes/start/dracula
 cp vim ~/.vim -r
 git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
-cp nvim/* ~/.config/nvim -r
+cp nvim ~/.config -r
 git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dracula
 npm i -g vim-language-server pyright bash-language-server
 cp bashrc ~/.bashrc
