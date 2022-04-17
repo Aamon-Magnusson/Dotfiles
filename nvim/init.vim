@@ -268,7 +268,7 @@ call plug#begin()
 	Plug 'kyazdani42/nvim-web-devicons'
 
 
-"	Plug 'numToStr/Comment.nvim' "new commit that broke it, should hopefully be fixed some time"
+	Plug 'numToStr/Comment.nvim', {'tag': 'v0.6'}
 
 	" show keybindings of leader
 	Plug 'liuchengxu/vim-which-key'
@@ -285,6 +285,6 @@ source $HOME/.config/nvim/telescope.vim
 lua require('user.auto-pandoc')
 source $HOME/.config/nvim/markdown-preview.vim
 source $HOME/.config/nvim/goyo.vim
-"source $HOME/.config/nvim/comment.vim
+source $HOME/.config/nvim/comment.vim
 source $HOME/.config/nvim/alpha.vim
 source $HOME/.config/nvim/which-key.vim
