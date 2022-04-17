@@ -66,10 +66,10 @@ nmap <leader>r :%s/\r//g<CR>
 autocmd InsertEnter * norm zz
 
 " Open netrw if no files are given
-augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * if argc() == 0 | Explore! | endif
-augroup END
+"augroup ProjectDrawer
+"    autocmd!
+"    autocmd VimEnter * if argc() == 0 | Explore! | endif
+"augroup END
 
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
@@ -207,6 +207,7 @@ inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Markdown keymaps
 autocmd FileType markdown noremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+autocmd FileType markdown noremap <leader>ma i---<CR>pandoc_:<CR>  - output: <+++><CR>---
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 autocmd FileType markdown noremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
 autocmd FileType markdown noremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
@@ -247,15 +248,31 @@ endif
 call plug#begin()
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/nvim-compe'
+
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
+
+	" See if I use this
+	Plug 'github/copilot.vim'
+
+	" Markdown
+	Plug 'jghauser/auto-pandoc.nvim'
+	Plug 'davidgranstrom/nvim-markdown-preview'
+
+	Plug 'junegunn/goyo.vim'
+
+	Plug 'goolord/alpha-nvim'
+	Plug 'kyazdani42/nvim-web-devicons'
+
+	Plug 'numToStr/Comment.nvim'
 call plug#end()
 
 lua require('user.lsp-config')
 lua require('user.compe')
+source $HOME/.config/nvim/telescope.vim
+lua require('user.auto-pandoc')
+source $HOME/.config/nvim/markdown-preview.vim
+source $HOME/.config/nvim/goyo.vim
 
-" Find files using Telescope command-line sugar.
-nnoremap <leader>tf <cmd>Telescope find_files<cr>
-nnoremap <leader>tg <cmd>Telescope live_grep<cr>
-nnoremap <leader>tb <cmd>Telescope buffers<cr>
-nnoremap <leader>th <cmd>Telescope help_tags<cr>
+lua require'alpha'.setup(require'alpha.themes.startify'.config)
+lua require('Comment').setup()

@@ -11,9 +11,10 @@ sudo rm ~/.vim -r
 sudo rm -r ~/.vim/pack/themes/start/dracula
 cp vim ~/.vim -r
 git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
+sudo rm ~/.config/nvim -r
 cp nvim ~/.config -r
 git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dracula
-sudo npm i -g vim-language-server pyright bash-language-server
+sudo npm i -g vim-language-server pyright bash-language-server live-server
 cp bashrc ~/.bashrc
 [[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "exec fish" >> ~/.zshrc
 cp alacritty ~/.config/ -r
