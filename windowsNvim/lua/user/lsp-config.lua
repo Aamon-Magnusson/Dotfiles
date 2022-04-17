@@ -1,10 +1,11 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
-vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>le', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>ln', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lp', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
+vim.api.nvim_set_keymap('n', '<leader>lt', '<cmd>Telescope diagnostics<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -31,27 +32,34 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'pyright', 'rust_analyzer', 'tsserver' }
+local servers = { 'pyright', 'ccls', 'bashls', 'vimls', 'sumneko_lua' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
-    on_attach = on_attach,
+    on_attach = custom_attach,
     flags = {
       -- This will be the default in neovim 0.7+
       debounce_text_changes = 150,
     }
   }
 end
+-- No auto line wrapping
+vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
 -- languages
-require'lspconfig'.bashls.setup{
-	on_attach=custom_attach
-}
-require'lspconfig'.ccls.setup{
-	on_attach=custom_attach
-}
-require'lspconfig'.pyright.setup{
-	on_attach=custom_attach
-}
-require'lspconfig'.vimls.setup{
-	on_attach=custom_attach
-}
+-- require'lspconfig'.bashls.setup{
+-- 	on_attach=custom_attach
+-- }
+-- require'lspconfig'.ccls.setup{
+-- 	on_attach=custom_attach
+-- }
+-- require'lspconfig'.pyright.setup{
+-- 	on_attach=custom_attach
+-- }
+-- require'lspconfig'.vimls.setup{
+-- 	on_attach=custom_attach
+-- }
+-- require'lspconfig'.sumneko_lua.setup{
+-- 	on_attach=custom_attach
+-- }

@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger lsd neovim fd fzf npm ccls
+	sudo pacman -S --needed gvim alacritty qutebrowser fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive-most
 fi
 
 ln -s /run/media/$USER ~/Drives

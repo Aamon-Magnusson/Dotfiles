@@ -1,4 +1,4 @@
-"     ___
+""     ___
 "    / _ \
 "   / /_\ \ __ _ _ __ ___   ___  _ __
 "   |  _  |/ _` | '_ ` _ \ / _ \| '_ \
@@ -246,9 +246,11 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin()
+	" LSP
 	Plug 'neovim/nvim-lspconfig'
 	Plug 'hrsh7th/nvim-compe'
 
+	" telescope!!!
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim'
 
@@ -261,18 +263,28 @@ call plug#begin()
 
 	Plug 'junegunn/goyo.vim'
 
+	" Home page
 	Plug 'goolord/alpha-nvim'
 	Plug 'kyazdani42/nvim-web-devicons'
 
-	Plug 'numToStr/Comment.nvim'
+
+"	Plug 'numToStr/Comment.nvim' "new commit that broke it, should hopefully be fixed some time"
+
+	" show keybindings of leader
+	Plug 'liuchengxu/vim-which-key'
+
+	" gitgutter
+	Plug 'airblade/vim-gitgutter'
 call plug#end()
 
+source %userprofile%\AppData\Local\nvim\plug.vim
 lua require('user.lsp-config')
 lua require('user.compe')
+source %userprofile%\AppData\Local\nvim\compe.vim
 source %userprofile%\AppData\Local\nvim\telescope.vim
 lua require('user.auto-pandoc')
 source %userprofile%\AppData\Local\nvim\markdown-preview.vim
 source %userprofile%\AppData\Local\nvim\goyo.vim
-
-lua require'alpha'.setup(require'alpha.themes.startify'.config)
-lua require('Comment').setup()
+"source %userprofile%\AppData\Local\nvim\comment.vim
+source %userprofile%\AppData\Local\nvim\alpha.vim
+source %userprofile%\AppData\Local\nvim\which-key.vim
