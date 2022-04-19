@@ -154,10 +154,10 @@ map <leader>p /<+++><CR><CR>ca<
 inoremap ;p <+++>
 
 " template keybindings
-nnoremap ,html :-1read %userprofile%\AppData\Local\nvim\Templates\template.html<CR>/<+++><CR>da<i
-nnoremap ,c :-1read %userprofile%\AppData\Local\nvim\Templates\template.c<CR>/<+++><CR>da<
-nnoremap ,py :-1read %userprofile%\AppData\Local\nvim\Templates\template.py<CR>/<+++><CR>da<
-nnoremap ,sh :-1read %userprofile%\AppData\Local\nvim\Templates\template.sh<CR>/<+++><CR>da<
+nnoremap ,html :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.html<CR>/<+++><CR>da<i
+nnoremap ,c :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.c<CR>/<+++><CR>da<
+nnoremap ,py :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.py<CR>/<+++><CR>da<
+nnoremap ,sh :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.sh<CR>/<+++><CR>da<
 
 " Remove highlights from searches
 nnoremap <CR> :nohlsearch<CR>
@@ -238,7 +238,7 @@ let g:netrw_altv = 1
 "let g:netrw_winsize = 20
 
 " Status line
-source %userprofile%\AppData\Local\nvim\statusLine.vim
+source C:\Users\aamon\AppData\Local\nvim\statusLine.vim
 
 " =========== "
 " Plugins
@@ -287,14 +287,14 @@ elseif has("unix")
 		Plug 'jiangmiao/auto-pairs'
 	call plug#end()
 
-	source %userprofile%\AppData\Local\nvim\plug.vim
+	source C:\Users\aamon\AppData\Local\nvim\plug.vim
 	lua require('user.lsp-config')
 	lua require('user.compe')
-	source %userprofile%\AppData\Local\nvim\compe.vim
-	source %userprofile%\AppData\Local\nvim\telescope.vim
+	source C:\Users\aamon\AppData\Local\nvim\compe.vim
+	source C:\Users\aamon\AppData\Local\nvim\telescope.vim
 	lua require('user.auto-pandoc')
-	source %userprofile%\AppData\Local\nvim\markdown-preview.vim
-	source %userprofile%\AppData\Local\nvim\goyo.vim
+	source C:\Users\aamon\AppData\Local\nvim\markdown-preview.vim
+	source C:\Users\aamon\AppData\Local\nvim\goyo.vim
 	lua require('user.comment')
-	source %userprofile%\AppData\Local\nvim\which-key.vim
+	source C:\Users\aamon\AppData\Local\nvim\which-key.vim
 endif
