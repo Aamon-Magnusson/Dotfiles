@@ -21,6 +21,5 @@ sudo rm -rf nvim/pack/themes/start/
 # Create windows nvim config
 rm -r windowsNvim
 cp nvim windowsNvim -r
-sed -i 's $HOME/.config/nvim/ %userprofile%\\AppData\\Local\\nvim\\ g' windowsNvim/init.vim
-sed -i 's %userprofile%\\AppData\\Local\\nvim\\statusline.vim "%userprofile%\\AppData\\Local\\nvim\\statusline.vim" g' windowsNvim/init.vim
+sed -i 's $HOME/.config/nvim C:\\Users\\aamon\\AppData\\Local\\nvim g' windowsNvim/init.vim
 sed -i 's Templates/ Templates\\ g' windowsNvim/init.vim
