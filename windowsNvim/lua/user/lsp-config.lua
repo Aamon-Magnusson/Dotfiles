@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<leader>lt', '<cmd>Telescope diagnostics<CR>', opt
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local custom_attach = function(client, bufnr)
+	print("LSP server connected")
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 

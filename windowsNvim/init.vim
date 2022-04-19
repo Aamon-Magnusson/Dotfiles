@@ -66,10 +66,10 @@ nmap <leader>r :%s/\r//g<CR>
 autocmd InsertEnter * norm zz
 
 " Open netrw if no files are given
-"augroup ProjectDrawer
-"    autocmd!
-"    autocmd VimEnter * if argc() == 0 | Explore! | endif
-"augroup END
+augroup ProjectDrawer
+   autocmd!
+   autocmd VimEnter * if argc() == 0 | Explore! | endif
+augroup END
 
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
@@ -122,12 +122,12 @@ nnoremap <leader>l9 :call MoveLineToBottomOfList()<cr>
 map <leader>i :set fdm=indent<CR>
 map <leader>I :set fdm=syntax<CR>
 
-" Open both quotes or brakets at once
-inoremap " ""<left>
-inoremap { {}<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap < <><left>
+" " Open both quotes or brakets at once
+" inoremap " ""<left>
+" inoremap { {}<left>
+" inoremap ( ()<left>
+" inoremap [ []<left>
+" inoremap < <><left>
 
 " Move around splits
 nmap <C-h> <C-w>h
@@ -141,8 +141,14 @@ noremap <silent> <C-Right> :vertical resize -3<CR>
 noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
+" move splits
+noremap <C-w><S-h> <A-h>
+noremap <C-w><S-j> <A-j>
+noremap <C-w><S-k> <A-k>
+noremap <C-w><S-l> <A-l>
+
 " jump to placehoder
-map <leader>p /<+++><CR>ca<
+map <leader>p /<+++><CR><CR>ca<
 
 " Place placeholder
 inoremap ;p <+++>
@@ -238,53 +244,57 @@ source %userprofile%\AppData\Local\nvim\statusLine.vim
 " Plugins
 " =========== "
 "
-if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
-	echo "Downloading junegunn/vim-plug to manage plugins..."
-	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
-	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
-	autocmd VimEnter * PlugInstall
+if has("win32")
+	echo "Plugins not available"
+elseif has("unix")
+	if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+		echo "Downloading junegunn/vim-plug to manage plugins..."
+		silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+		silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+		autocmd VimEnter * PlugInstall
+	endif
+
+	call plug#begin()
+		" LSP
+		Plug 'neovim/nvim-lspconfig'
+		Plug 'hrsh7th/nvim-compe' "This is deprecated should try to figure out another autocomplete"
+
+		" telescope!!!
+		Plug 'nvim-lua/plenary.nvim'
+		Plug 'nvim-telescope/telescope.nvim'
+
+		" See if I use this
+		Plug 'github/copilot.vim'
+
+		" Markdown
+		Plug 'jghauser/auto-pandoc.nvim'
+		Plug 'davidgranstrom/nvim-markdown-preview'
+		Plug 'junegunn/goyo.vim'
+
+		" nice commenting
+		Plug 'numToStr/Comment.nvim', {'tag': 'v0.6'}
+
+		" show keybindings of leader
+		Plug 'liuchengxu/vim-which-key'
+
+		" gitgutter
+		Plug 'airblade/vim-gitgutter'
+
+		" color preview
+		Plug 'ap/vim-css-color'
+
+		" pairs
+		Plug 'jiangmiao/auto-pairs'
+	call plug#end()
+
+	source %userprofile%\AppData\Local\nvim\plug.vim
+	lua require('user.lsp-config')
+	lua require('user.compe')
+	source %userprofile%\AppData\Local\nvim\compe.vim
+	source %userprofile%\AppData\Local\nvim\telescope.vim
+	lua require('user.auto-pandoc')
+	source %userprofile%\AppData\Local\nvim\markdown-preview.vim
+	source %userprofile%\AppData\Local\nvim\goyo.vim
+	lua require('user.comment')
+	source %userprofile%\AppData\Local\nvim\which-key.vim
 endif
-
-call plug#begin()
-	" LSP
-	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/nvim-compe'
-
-	" telescope!!!
-	Plug 'nvim-lua/plenary.nvim'
-	Plug 'nvim-telescope/telescope.nvim'
-
-	" See if I use this
-	Plug 'github/copilot.vim'
-
-	" Markdown
-	Plug 'jghauser/auto-pandoc.nvim'
-	Plug 'davidgranstrom/nvim-markdown-preview'
-
-	Plug 'junegunn/goyo.vim'
-
-	" Home page
-	Plug 'goolord/alpha-nvim'
-	Plug 'kyazdani42/nvim-web-devicons'
-
-
-	Plug 'numToStr/Comment.nvim', {'tag': 'v0.6'}
-
-	" show keybindings of leader
-	Plug 'liuchengxu/vim-which-key'
-
-	" gitgutter
-	Plug 'airblade/vim-gitgutter'
-call plug#end()
-
-source %userprofile%\AppData\Local\nvim\plug.vim
-lua require('user.lsp-config')
-lua require('user.compe')
-source %userprofile%\AppData\Local\nvim\compe.vim
-source %userprofile%\AppData\Local\nvim\telescope.vim
-lua require('user.auto-pandoc')
-source %userprofile%\AppData\Local\nvim\markdown-preview.vim
-source %userprofile%\AppData\Local\nvim\goyo.vim
-lua require('user.comment')
-source %userprofile%\AppData\Local\nvim\alpha.vim
-source %userprofile%\AppData\Local\nvim\which-key.vim
