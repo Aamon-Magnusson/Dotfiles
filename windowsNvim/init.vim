@@ -1,4 +1,4 @@
-""     ___
+"     ___
 "    / _ \
 "   / /_\ \ __ _ _ __ ___   ___  _ __
 "   |  _  |/ _` | '_ ` _ \ / _ \| '_ \
@@ -217,6 +217,7 @@ autocmd FileType markdown noremap <leader>ma i---<CR>pandoc_:<CR>  - output: <++
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 autocmd FileType markdown noremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
 autocmd FileType markdown noremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
+autocmd FileType markdown noremap <leader>mb i/pagebreak<CR><Esc>
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
@@ -245,7 +246,7 @@ source C:\Users\aamon\AppData\Local\nvim\statusLine.vim
 " =========== "
 "
 if has("win32")
-	echo "Plugins not available"
+	echo "Plugins not available for now at least"
 elseif has("unix")
 	if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 		echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -266,8 +267,17 @@ elseif has("unix")
 		" See if I use this
 		Plug 'github/copilot.vim'
 
+		" tpope
+		Plug 'tpope/vim-surround'
+		Plug 'tpope/vim-repeat'
+		Plug 'glts/vim-radical'
+		Plug 'glts/vim-magnum'
+
+		" Movement
+		Plug 'easymotion/vim-easymotion'
+
 		" Markdown
-		Plug 'jghauser/auto-pandoc.nvim'
+		" Plug 'jghauser/auto-pandoc.nvim'
 		Plug 'davidgranstrom/nvim-markdown-preview'
 		Plug 'junegunn/goyo.vim'
 
@@ -292,7 +302,7 @@ elseif has("unix")
 	lua require('user.compe')
 	source C:\Users\aamon\AppData\Local\nvim\compe.vim
 	source C:\Users\aamon\AppData\Local\nvim\telescope.vim
-	lua require('user.auto-pandoc')
+	" lua require('user.auto-pandoc')
 	source C:\Users\aamon\AppData\Local\nvim\markdown-preview.vim
 	source C:\Users\aamon\AppData\Local\nvim\goyo.vim
 	lua require('user.comment')
