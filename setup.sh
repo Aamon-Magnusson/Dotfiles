@@ -16,7 +16,7 @@ cp nvim ~/.config -r
 git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dracula
 sudo npm i -g vim-language-server pyright bash-language-server live-server
 cp bashrc ~/.bashrc
-[[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "exec fish" >> ~/.zshrc
+[[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "# exec fish" >> ~/.zshrc
 cp alacritty ~/.config/ -r
 cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r
