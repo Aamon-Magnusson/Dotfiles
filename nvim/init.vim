@@ -278,7 +278,7 @@ elseif has("unix")
 		Plug 'easymotion/vim-easymotion'
 
 		" Markdown
-		" Plug 'jghauser/auto-pandoc.nvim'
+		" Plug 'jghauser/auto-pandoc.nvim' "This one broke at nvim 0.7"
 		Plug 'davidgranstrom/nvim-markdown-preview'
 		Plug 'junegunn/goyo.vim'
 
@@ -297,7 +297,6 @@ elseif has("unix")
 		" pairs
 		Plug 'jiangmiao/auto-pairs'
 	call plug#end()
-
 	source $HOME/.config/nvim/plug.vim
 	lua require('user.lsp-config')
 	lua require('user.compe')

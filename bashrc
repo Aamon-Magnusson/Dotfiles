@@ -148,4 +148,9 @@ export LESS=-R
 export VISUAL=nvim;
 export EDITOR=nvim;
 
+export SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu
+
+xmodmap -e "clear lock" #disable caps lock switch
+xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
+
 exec fish

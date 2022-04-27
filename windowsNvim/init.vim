@@ -122,13 +122,6 @@ nnoremap <leader>l9 :call MoveLineToBottomOfList()<cr>
 map <leader>i :set fdm=indent<CR>
 map <leader>I :set fdm=syntax<CR>
 
-" " Open both quotes or brakets at once
-" inoremap " ""<left>
-" inoremap { {}<left>
-" inoremap ( ()<left>
-" inoremap [ []<left>
-" inoremap < <><left>
-
 " Move around splits
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
@@ -247,6 +240,14 @@ source C:\Users\aamon\AppData\Local\nvim\statusLine.vim
 "
 if has("win32")
 	echo "Plugins not available for now at least"
+
+	" Open both quotes or brakets at once
+	inoremap " ""<left>
+	inoremap { {}<left>
+	inoremap ( ()<left>
+	inoremap [ []<left>
+	inoremap < <><left>
+
 elseif has("unix")
 	if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
 		echo "Downloading junegunn/vim-plug to manage plugins..."
@@ -277,7 +278,7 @@ elseif has("unix")
 		Plug 'easymotion/vim-easymotion'
 
 		" Markdown
-		" Plug 'jghauser/auto-pandoc.nvim'
+		" Plug 'jghauser/auto-pandoc.nvim' "This one broke at nvim 0.7"
 		Plug 'davidgranstrom/nvim-markdown-preview'
 		Plug 'junegunn/goyo.vim'
 
@@ -296,7 +297,6 @@ elseif has("unix")
 		" pairs
 		Plug 'jiangmiao/auto-pairs'
 	call plug#end()
-
 	source C:\Users\aamon\AppData\Local\nvim\plug.vim
 	lua require('user.lsp-config')
 	lua require('user.compe')
