@@ -5,6 +5,7 @@ sudo rm vim -r
 cp $HOME/.vim vim -r
 sudo rm -r vim/pack/themes/start/
 cp $HOME/.bashrc bashrc
+cp $HOME/.xprofile xprofile
 rm alacritty -r
 rm qutebrowser -r
 rm fish -r
