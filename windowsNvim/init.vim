@@ -147,7 +147,7 @@ map <leader>p /<+++><CR><CR>ca<
 inoremap ;p <+++>
 
 " template keybindings
-nnoremap ,html :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.html<CR>/<+++><CR>da<i
+nnoremap ,html :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.html<CR>/<+++><CR>ca<
 nnoremap ,c :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.c<CR>/<+++><CR>da<
 nnoremap ,py :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.py<CR>/<+++><CR>da<
 nnoremap ,sh :-1read C:\Users\aamon\AppData\Local\nvim\Templates\template.sh<CR>/<+++><CR>da<
@@ -214,8 +214,8 @@ autocmd FileType markdown map <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 noremap <leader>mb o\pagebreak<Esc>
 
 autocmd FileType markdown map <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
-autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR><CR>
-autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR><CR>
+autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
+autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
