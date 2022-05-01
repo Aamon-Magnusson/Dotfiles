@@ -205,17 +205,17 @@ inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Markdown keymaps
-autocmd FileType markdown noremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+autocmd FileType markdown map <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 
-autocmd FileType markdown noremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
-autocmd FileType markdown noremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
+autocmd FileType markdown map <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
+autocmd FileType markdown map <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 " autocmd FileType markdown
-noremap <leader>mb o\pagebreak<CR><Esc>
+noremap <leader>mb o\pagebreak<Esc>
 
 autocmd FileType markdown map <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
-autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output & <CR><CR>
-autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output & <CR><CR>
+autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR><CR>
+autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR><CR>
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
