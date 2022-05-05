@@ -131,6 +131,7 @@ abbr gc "git commit -a"
 abbr gp "git push"
 abbr gpl "git pull"
 abbr gd "git diff"
+abbr gt "git difftool"
 abbr gs "git status"
 abbr ga "git add ."
 

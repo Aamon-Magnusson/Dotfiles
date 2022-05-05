@@ -264,13 +264,13 @@ elseif has("unix")
 	call plug#begin()
 		" LSP
 		Plug 'neovim/nvim-lspconfig'
-		Plug 'hrsh7th/nvim-compe' "This is deprecated should try to figure out another autocomplete"
+		Plug 'hrsh7th/nvim-compe' "This is deprecated, should try to figure out another autocomplete"
 
 		" telescope!!!
 		Plug 'nvim-lua/plenary.nvim'
 		Plug 'nvim-telescope/telescope.nvim'
 
-		" See if I use this
+		" See if I use this (Or am allowed to use this)
 		Plug 'github/copilot.vim'
 
 		" tpope
@@ -283,11 +283,12 @@ elseif has("unix")
 		Plug 'easymotion/vim-easymotion'
 
 		" Markdown
+		" I might be able to take this out but it stays for now
 		Plug 'davidgranstrom/nvim-markdown-preview'
 		Plug 'junegunn/goyo.vim'
 
 		" nice commenting
-		Plug 'numToStr/Comment.nvim', {'tag': 'v0.6'}
+		Plug 'numToStr/Comment.nvim'
 
 		" show keybindings of leader
 		Plug 'liuchengxu/vim-which-key'

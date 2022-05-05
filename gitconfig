@@ -1,0 +1,16 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
+[user]
+	email = aamonm6@gmail.com
+	name = Aamon Magnusson
+[core]
+	editor = nvim
+[pull]
+	rebase = false
+[difftool]
+	prompt = true
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
