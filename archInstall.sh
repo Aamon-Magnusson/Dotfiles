@@ -22,3 +22,9 @@ git clone https://aur.archlinux.org/yay
 cd yay
 makepkg -si
 
+# Enable NetworkManager
+sudo systemctl enable NetworkManager.service
+
+# Enable Ly
+yay -S ly
+sudo systemctl enable ly.service
