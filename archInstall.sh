@@ -16,7 +16,7 @@ mkdir -p $HOME/Downloads
 mkdir -p $HOME/Videos
 
 # Set up yay
-sudo pacman -S git
+sudo pacman -S git base-devel
 cd $HOME/Programming
 git clone https://aur.archlinux.org/yay
 cd yay
