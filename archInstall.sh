@@ -14,6 +14,10 @@ mkdir -p $HOME/RandomPrograms
 mkdir -p $HOME/Screenshots
 mkdir -p $HOME/Downloads
 mkdir -p $HOME/Videos
+sudo mkdir /usr/share/xsessions
+
+# Make nvim vi
+sudo ln -s /usr/bin/nvim /usr/bin/vi
 
 #set up pacman the way I like it
 sudo sed -i "s/#ParallelDownloads = 5/ParallelDownloads = 5/g" /etc/pacman.conf
@@ -31,7 +35,8 @@ cd yay
 makepkg -si
 
 # Enable NetworkManager
-sudo systemctl enable NetworkManager.service
+# Un-needed with archinstall
+# sudo systemctl enable NetworkManager.service
 
 # Enable Ly
 yay -S ly
