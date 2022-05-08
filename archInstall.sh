@@ -15,6 +15,14 @@ mkdir -p $HOME/Screenshots
 mkdir -p $HOME/Downloads
 mkdir -p $HOME/Videos
 
+#set up pacman the way I like it
+sudo sed -i "s/#ParallelDownloads = 5/ParallelDownloads = 5/g" /etc/pacman.conf
+# I should try to find a way to add "ILoveCandy" into the pacman.conf
+
+# This section should not be used for security
+# Make root user's home shared with $USER
+sudo sed -i "s|/root|/home/$USER|g" /etc/passwd
+
 # Set up yay
 sudo pacman -S git base-devel
 cd $HOME/Programming
