@@ -266,14 +266,17 @@ elseif has("unix")
 		Plug 'neovim/nvim-lspconfig'
 		Plug 'hrsh7th/nvim-compe' "This is deprecated, should try to figure out another autocomplete"
 
-		" telescope!!!
+		" Telescope!!!
 		Plug 'nvim-lua/plenary.nvim'
 		Plug 'nvim-telescope/telescope.nvim'
+
+		" Harpoon
+		Plug 'ThePrimeagen/harpoon'
 
 		" See if I use this (Or am allowed to use this)
 		Plug 'github/copilot.vim'
 
-		" tpope
+		" Tpope
 		Plug 'tpope/vim-surround'
 		Plug 'tpope/vim-repeat'
 		Plug 'glts/vim-radical'
@@ -307,6 +310,8 @@ elseif has("unix")
 	lua require('user.compe')
 	source $HOME/.config/nvim/compe.vim
 	source $HOME/.config/nvim/telescope.vim
+	lua require('user.harpoon')
+	source $HOME/.config/nvim/harpoon.vim
 	source $HOME/.config/nvim/markdown-preview.vim
 	source $HOME/.config/nvim/goyo.vim
 	lua require('user.comment')
