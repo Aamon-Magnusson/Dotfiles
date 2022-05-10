@@ -62,6 +62,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 " I'm trying to make this an autocmd but not yet ready
 nmap <leader>r :%s/\r//g<CR>
 
+" Remove ʼ from file
+" autocmd BufWritePre * :$s/ʼ//g
+" nnoremap <leader>R :$s/ʼ/'/g
+
 " Auto center on insert mode
 autocmd InsertEnter * norm zz
 
@@ -212,6 +216,14 @@ autocmd FileType markdown map <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF
 autocmd FileType markdown map <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 " autocmd FileType markdown
 noremap <leader>mb o\pagebreak<Esc>
+
+" headings
+autocmd FileType markdown map <leader>h1 I# <ESC>
+autocmd FileType markdown map <leader>h2 I## <ESC>
+autocmd FileType markdown map <leader>h3 I### <ESC>
+autocmd FileType markdown map <leader>h4 I#### <ESC>
+autocmd FileType markdown map <leader>h5 I##### <ESC>
+autocmd FileType markdown map <leader>h6 I###### <ESC>
 
 autocmd FileType markdown map <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
 autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
