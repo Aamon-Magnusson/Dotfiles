@@ -134,5 +134,6 @@ abbr gd "git diff"
 abbr gt "git difftool"
 abbr gs "git status"
 abbr ga "git add ."
+abbr gm "git mergetool"
 
 starship init fish | source

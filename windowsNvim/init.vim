@@ -81,7 +81,7 @@ au FocusGained,BufEnter * :checktime
 " Keybindings
 " =========== "
 " Open netrw to aid in splits
-map <leader>h :Sex<CR>
+map <leader>N :Sex<CR>
 map <leader>n :Vex!<CR>
 
 " Close all of vim even with splits open
@@ -220,6 +220,9 @@ autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.do
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
 
+" execute current file
+nnoremap <leader>e :!./%<CR>
+
 " =========== "
 " Themeing
 " =========== "
@@ -310,7 +313,6 @@ elseif has("unix")
 	lua require('user.compe')
 	source C:\Users\aamon\AppData\Local\nvim\compe.vim
 	source C:\Users\aamon\AppData\Local\nvim\telescope.vim
-	lua require('user.harpoon')
 	source C:\Users\aamon\AppData\Local\nvim\harpoon.vim
 	source C:\Users\aamon\AppData\Local\nvim\markdown-preview.vim
 	source C:\Users\aamon\AppData\Local\nvim\goyo.vim
