@@ -172,10 +172,12 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *zzzv
 nnoremap # #zzzv
+nnoremap J J0
 
 " keep area selected when shifting
 vnoremap < <gv
 vnoremap > >gv
+vnoremap x xgv
 
 " Quickfix list
 noremap <leader>cg :vimgrep //g **/*<CR>
@@ -218,12 +220,12 @@ autocmd FileType markdown map <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 noremap <leader>mb o\pagebreak<Esc>
 
 " headings
-autocmd FileType markdown map <leader>h1 I# <ESC>
-autocmd FileType markdown map <leader>h2 I## <ESC>
-autocmd FileType markdown map <leader>h3 I### <ESC>
-autocmd FileType markdown map <leader>h4 I#### <ESC>
-autocmd FileType markdown map <leader>h5 I##### <ESC>
-autocmd FileType markdown map <leader>h6 I###### <ESC>
+autocmd FileType markdown map <leader>mh1 I# <ESC>
+autocmd FileType markdown map <leader>mh2 I## <ESC>
+autocmd FileType markdown map <leader>mh3 I### <ESC>
+autocmd FileType markdown map <leader>mh4 I#### <ESC>
+autocmd FileType markdown map <leader>mh5 I##### <ESC>
+autocmd FileType markdown map <leader>mh6 I###### <ESC>
 
 autocmd FileType markdown map <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
 autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
