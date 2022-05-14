@@ -60,7 +60,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " clean /r from file
 "autocmd BufReadPost * :%s/\r//g
 " I'm trying to make this an autocmd but not yet ready
-nmap <leader>r :%s/\r//g<CR>
+nnoremap <leader>r :%s/\r//g<CR>
 
 " Remove ʼ from file
 " autocmd BufWritePre * :$s/ʼ//g
@@ -85,24 +85,24 @@ au FocusGained,BufEnter * :checktime
 " Keybindings
 " =========== "
 " Open netrw to aid in splits
-map <leader>N :Sex<CR>
-map <leader>n :Vex!<CR>
+nnoremap <leader>N :Sex<CR>
+nnoremap <leader>n :Vex!<CR>
 
 " Close all of vim even with splits open
-map <leader>q :wqa<CR>
-map <leader>Q :qa!<CR>
+nnoremap <leader>q :wqa<CR>
+nnoremap <leader>Q :qa!<CR>
 
 " Make Y work the same as other upercase chars
 nmap Y y$
 
 " Copy paste
 vnoremap <leader>c "*y :let @+=@*<CR>
-map <leader>v "+p
+nnoremap <leader>v "+p
 
 " Enable spell check
-map <leader>se :set spell spelllang=en_ca<CR>
-map <leader>sf :set spell spelllang=fr_ca<CR>
-map <leader>so :set nospell<CR>
+nnoremap <leader>se :set spell spelllang=en_ca<CR>
+nnoremap <leader>sf :set spell spelllang=fr_ca<CR>
+nnoremap <leader>so :set nospell<CR>
 
 " Fix last spelling error
 function! FixLastSpellingError()
@@ -198,7 +198,10 @@ nnoremap <Leader>fR :%s///g<Left><Left>
 nnoremap <Leader>fC :%s///gc<Left><Left><Left>
 
 " Source Vim config file.
-map <Leader>sv :source $MYVIMRC<CR>
+nnoremap <Leader>vs :source $MYVIMRC<CR>
+
+" Open init.vim
+nnoremap <leader>ve :e $MYVIMRC<CR>
 
 " Navigate the complete menu items like CTRL+n / CTRL+p would.
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
@@ -211,25 +214,25 @@ inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Markdown keymaps
-autocmd FileType markdown map <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+autocmd FileType markdown nnoremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 
-autocmd FileType markdown map <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
-autocmd FileType markdown map <leader>ml i[](<+++>)<Space><+++><Esc>F]i
+autocmd FileType markdown nnoremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
+autocmd FileType markdown nnoremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
 " autocmd FileType markdown
 noremap <leader>mb o\pagebreak<Esc>
 
 " headings
-autocmd FileType markdown map <leader>mh1 I# <ESC>
-autocmd FileType markdown map <leader>mh2 I## <ESC>
-autocmd FileType markdown map <leader>mh3 I### <ESC>
-autocmd FileType markdown map <leader>mh4 I#### <ESC>
-autocmd FileType markdown map <leader>mh5 I##### <ESC>
-autocmd FileType markdown map <leader>mh6 I###### <ESC>
+autocmd FileType markdown nnoremap <leader>m1 I# <ESC>
+autocmd FileType markdown nnoremap <leader>m2 I## <ESC>
+autocmd FileType markdown nnoremap <leader>m3 I### <ESC>
+autocmd FileType markdown nnoremap <leader>m4 I#### <ESC>
+autocmd FileType markdown nnoremap <leader>m5 I##### <ESC>
+autocmd FileType markdown nnoremap <leader>m6 I###### <ESC>
 
-autocmd FileType markdown map <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
-autocmd FileType markdown map <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
-autocmd FileType markdown map <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
+autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
+autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
+autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
@@ -305,7 +308,6 @@ elseif has("unix")
 		" Markdown
 		" I might be able to take this out but it stays for now
 		Plug 'davidgranstrom/nvim-markdown-preview'
-		Plug 'junegunn/goyo.vim'
 
 		" nice commenting
 		Plug 'numToStr/Comment.nvim'
@@ -315,9 +317,6 @@ elseif has("unix")
 
 		" gitgutter
 		Plug 'airblade/vim-gitgutter'
-
-		" color preview
-		Plug 'ap/vim-css-color'
 
 		" pairs
 		Plug 'jiangmiao/auto-pairs'
@@ -329,7 +328,6 @@ elseif has("unix")
 	source C:\Users\aamon\AppData\Local\nvim\telescope.vim
 	source C:\Users\aamon\AppData\Local\nvim\harpoon.vim
 	source C:\Users\aamon\AppData\Local\nvim\markdown-preview.vim
-	source C:\Users\aamon\AppData\Local\nvim\goyo.vim
 	lua require('user.comment')
 	source C:\Users\aamon\AppData\Local\nvim\which-key.vim
 endif
