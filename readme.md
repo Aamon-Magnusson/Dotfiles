@@ -2,6 +2,14 @@
 
 This is here to let me easily get my customization back on a new install.
 
+## Nice configs
+
+Some of my configs I am somewhat proud of such as:
+
+- nvim
+- fish
+- (hopefully more to come)
+
 ## Setup
 
 ```

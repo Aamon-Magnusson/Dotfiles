@@ -234,6 +234,8 @@ autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g
 autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
 autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
+autocmd FileType markdown nnoremap <leader>mg :!test .md \|\| touch .md \| echo -e "[Go back](%)\n\n\# " > .md <CR><CR>
+
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %
 
