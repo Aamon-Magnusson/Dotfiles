@@ -6,8 +6,8 @@ This is here to let me easily get my customization back on a new install.
 
 Some of my configs I am somewhat proud of such as:
 
-- nvim
-- fish
+- nvim ( [init.vim](nvim/init.vim) )
+- fish ( [config.fish](config.fish) )
 - (hopefully more to come)
 
 ## Setup
