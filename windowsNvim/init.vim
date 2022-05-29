@@ -48,6 +48,9 @@ set cursorcolumn
 " Mouse support (Hopefully I won't use it much)
 set mouse=a
 
+" markdown code blocks
+let g:markdown_fenced_languages = ['java', 'bash', 'python', 'c']
+
 " =========== "
 " Auto commands
 " =========== "
@@ -172,7 +175,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 nnoremap * *zzzv
 nnoremap # #zzzv
-nnoremap J J0
+nnoremap J J0zz
 
 " keep area selected when shifting
 vnoremap < <gv
@@ -229,6 +232,10 @@ autocmd FileType markdown nnoremap <leader>m3 I### <ESC>
 autocmd FileType markdown nnoremap <leader>m4 I#### <ESC>
 autocmd FileType markdown nnoremap <leader>m5 I##### <ESC>
 autocmd FileType markdown nnoremap <leader>m6 I###### <ESC>
+
+autocmd FileType markdown nnoremap <leader>mc IPAGE CHANGE: <ESC>gcc
+" currently not functional
+" autocmd FileType markdown nnoremap <leader>mq :s/\\S\\.\\s/\\.\\r/g<CR>
 
 autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
 autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
