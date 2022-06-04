@@ -115,7 +115,7 @@ alias h "set h (history | fzf); $h"
 
 function h
 	set temp (history | fzf)
-	$temp
+	eval $temp
 end
 
 # ls aliases
