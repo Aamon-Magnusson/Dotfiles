@@ -22,4 +22,5 @@ cp alacritty ~/.config/ -r
 cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r
 cp ranger ~/.config/ -r
+cp BetterDiscord ~/.config/ -r
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
