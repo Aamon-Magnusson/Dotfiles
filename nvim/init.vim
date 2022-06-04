@@ -50,6 +50,7 @@ set mouse=a
 
 " markdown code blocks
 let g:markdown_fenced_languages = ['java', 'bash', 'python', 'c']
+let java_ignore_javadoc=1
 
 " =========== "
 " Auto commands
