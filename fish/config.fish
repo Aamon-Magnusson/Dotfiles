@@ -111,6 +111,12 @@ alias df "df --human-readable"
 abbr p "sudo pacman"
 abbr ran "ranger"
 abbr v "nvim"
+alias h "set h (history | fzf); $h"
+
+function h
+	set temp (history | fzf)
+	$temp
+end
 
 # ls aliases
 alias lsd "lsd --group-dirs first"
