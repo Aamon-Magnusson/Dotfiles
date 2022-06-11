@@ -142,4 +142,8 @@ abbr gs "git status"
 abbr ga "git add ."
 abbr gm "git mergetool"
 
+# Jekyll stuff (For MarkDown)
+# export GEM_HOME="$HOME/gems"
+# export PATH="$HOME/gems/bin:$PATH"
+
 starship init fish | source

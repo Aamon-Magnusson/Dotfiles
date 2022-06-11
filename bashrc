@@ -150,4 +150,10 @@ export EDITOR=nvim;
 
 export SUDO_ASKPASS=/usr/AamonDwmScripts/sudo_dmenu
 
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
 exec fish
+. "$HOME/.cargo/env"

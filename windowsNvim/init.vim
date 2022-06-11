@@ -218,7 +218,7 @@ inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
 inoremap <expr> <Left> pumvisible() ? "<C-e>" : "<Left>"
 
 " Markdown keymaps
-autocmd FileType markdown nnoremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
+" autocmd FileType markdown nnoremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
 "header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 
 autocmd FileType markdown nnoremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
@@ -243,6 +243,18 @@ autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\
 autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
 autocmd FileType markdown nnoremap <leader>mg :!test .md \|\| touch .md \| echo -e "[Go back](%)\n\n\# " > .md <CR><CR>
+
+autocmd FileType markdown nnoremap <leader>mti :-1read C:\Users\aamon\AppData\Local\nvim\Templates\imageBlock<CR>
+autocmd FileType markdown nnoremap <leader>mtu :-1read C:\Users\aamon\AppData\Local\nvim\Templates\umlBlock<CR>
+autocmd FileType markdown nnoremap <leader>mtd :-1read C:\Users\aamon\AppData\Local\nvim\Templates\descriptionBlock<CR>
+
+" uml stuff
+nnoremap <leader>ug :!plantuml % -tsvg<CR>
+" The following only works for .puml
+nnoremap <leader>uv :!echo % \| sed "s\|\.puml\|\.svg\|g" \| xargs sxiv & <CR><CR>
+nnoremap <leader>ub ggO@startuml<CR>!theme<Space>plain<CR>hide<Space>empty<Space>fields<CR>hide<Space>empty<Space>methods<CR>hide<Space>circle<CR>skinparam<Space>linetype<Space>ortho<CR>allowmixing<ESC>Go@enduml<ESC>gg
+nnoremap <leader>ui i«interface»<ESC>
+nnoremap <leader>ud :!xdg-open https://plantuml.com &<CR><CR>
 
 " Save file as sudo when no sudo permissions
 cmap w!! w !sudo tee > /dev/null %

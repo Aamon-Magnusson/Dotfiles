@@ -38,6 +38,15 @@ makepkg -si
 # Un-needed with archinstall
 # sudo systemctl enable NetworkManager.service
 
-# Enable Ly
-yay -S ly
-sudo systemctl enable ly.service
+# Enable Ly (for systems that are not Nvidia laptops)
+# yay -S ly
+# sudo systemctl enable ly.service
+
+# Enable lightDM (fro systems that are Nvidia laptops)
+# sudo pacman -S lightdm lightdm-gtk-greeter
+# sudo systemctl enable lightdm.service
+
+# Optimus-Manager
+# sudo pacman -S nvidia
+# sudo yay -S optimus-manager
+
