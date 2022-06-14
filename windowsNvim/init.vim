@@ -211,6 +211,7 @@ nnoremap <leader>ve :e $MYVIMRC<CR>
 inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
 inoremap <expr> <tab> pumvisible() ? "<C-n>" :"<tab>"
 inoremap <expr> <Up> pumvisible() ? "<C-p>" : "<Up>"
+inoremap <expr> <S-tab> pumvisible() ? "<C-p>" : "<S-tab>"
 " Select the complete menu item like CTRL+y would.
 inoremap <expr> <Right> pumvisible() ? "<C-y>" : "<Right>"
 inoremap <expr> <CR> pumvisible() ? "<C-y>" :"<CR>"
@@ -248,11 +249,55 @@ autocmd FileType markdown nnoremap <leader>mti :-1read C:\Users\aamon\AppData\Lo
 autocmd FileType markdown nnoremap <leader>mtu :-1read C:\Users\aamon\AppData\Local\nvim\Templates\umlBlock<CR>
 autocmd FileType markdown nnoremap <leader>mtd :-1read C:\Users\aamon\AppData\Local\nvim\Templates\descriptionBlock<CR>
 
+autocmd FileType markdown nnoremap <leader>mj :call FormatSentence()<CR>zz
+
+function! FormatSentence()
+    " save line
+    let fline = line(".")
+    " go to next [.:?]
+    execute "normal! /[\\.:?]\<cr>"
+    " save line
+    let sline = line(".")
+    " if on another line
+    if fline != sline
+        " line selection mode
+        execute "normal! V"
+        " go back to initial line
+        execute fline
+        " join lines
+        execute "normal! J"
+    endif
+    execute "normal! ^"
+
+    " save current line
+    let fline = line(".")
+    " go to next period with another sentence after it
+    execute "normal! /\\. [a-zA-Z]\\+\<cr>"
+    " save current line
+    let sline = line(".")
+
+    " if period is on same line
+    if fline == sline
+        " Replace period that has an additional paragraph after it with a newline
+        s/\. /.\r&/
+        " Go to next line and remove first period and space
+        s/^\. //
+    else
+        " go back to initial line, go to next line
+        execute fline
+        execute "normal! j"
+    endif
+    " go to beginning of line
+    execute "normal! ^"
+endfunction
+
 " uml stuff
 nnoremap <leader>ug :!plantuml % -tsvg<CR>
 " The following only works for .puml
 nnoremap <leader>uv :!echo % \| sed "s\|\.puml\|\.svg\|g" \| xargs sxiv & <CR><CR>
-nnoremap <leader>ub ggO@startuml<CR>!theme<Space>plain<CR>hide<Space>empty<Space>fields<CR>hide<Space>empty<Space>methods<CR>hide<Space>circle<CR>skinparam<Space>linetype<Space>ortho<CR>allowmixing<ESC>Go@enduml<ESC>gg
+nnoremap <leader>ub ggO@startuml<CR><ESC>Go@enduml<ESC>gg0
+nnoremap <leader>uc ggo!theme<Space>plain<CR>hide<Space>empty<Space>fields<CR>hide<Space>empty<Space>methods<CR>hide<Space>circle<CR>skinparam<Space>linetype<Space>ortho<CR>allowmixing<ESC>gg0
+nnoremap <leader>us ggo!theme<Space>plain<CR>skinparam<Space>sequenceMessageAlign<Space>center<CR>hide<Space>footbox<ESC>gg0
 nnoremap <leader>ui i«interface»<ESC>
 nnoremap <leader>ud :!xdg-open https://plantuml.com &<CR><CR>
 
