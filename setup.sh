@@ -14,6 +14,8 @@ git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 sudo rm ~/.config/nvim -r
 cp nvim ~/.config -r
 git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dracula
+sudo rm -r ~/.config/zathura/
+git clone https://github.com/dracula/zathura ~/.config/zathura/
 sudo npm i -g vim-language-server pyright bash-language-server live-server
 cp bashrc ~/.bashrc
 [[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "# exec fish" >> ~/.zshrc

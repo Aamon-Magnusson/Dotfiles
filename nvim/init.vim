@@ -85,6 +85,9 @@ autocmd VimResized * wincmd =
 " Update a buffer's contents on focus if it changed outside of Vim.
 au FocusGained,BufEnter * :checktime
 
+" JSON auto format
+autocmd FileType json autocmd BufWritePre <buffer> %!python -m json.tool
+
 " =========== "
 " Keybindings
 " =========== "
@@ -236,6 +239,7 @@ autocmd FileType markdown nnoremap <leader>m5 I##### <ESC>
 autocmd FileType markdown nnoremap <leader>m6 I###### <ESC>
 
 autocmd FileType markdown nnoremap <leader>mc IPAGE CHANGE: <ESC>gcc
+autocmd FileType markdown nnoremap <leader>ms I<span id="<esc>A"></span><ESC>
 " currently not functional
 " autocmd FileType markdown nnoremap <leader>mq :s/\\S\\.\\s/\\.\\r/g<CR>
 
