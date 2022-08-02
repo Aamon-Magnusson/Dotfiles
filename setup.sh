@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive-most zathura zathura-pdf-mupdf sxiv libreoffice-still
+	sudo pacman -S --needed gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive-most zathura zathura-pdf-mupdf sxiv libreoffice-still plantuml
 fi
 
 ln -s /run/media/$USER ~/Drives
@@ -20,6 +20,8 @@ sudo npm i -g vim-language-server pyright bash-language-server live-server
 cp bashrc ~/.bashrc
 [[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "# exec fish" >> ~/.zshrc
 cp xprofile $HOME/.xprofile
+chmod +x ~/.xprofile
+cp gitconfig ~/.gitconfig
 cp alacritty ~/.config/ -r
 cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r

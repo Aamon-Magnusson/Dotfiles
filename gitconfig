@@ -1,16 +1,24 @@
 [credential "https://github.com"]
 	helper =
 	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/usr/bin/gh auth git-credential
 [user]
 	email = aamonm6@gmail.com
 	name = Aamon Magnusson
-[core]
-	editor = nvim
 [pull]
 	rebase = false
 [difftool]
 	prompt = true
+[core]
+	editor = nvim
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f

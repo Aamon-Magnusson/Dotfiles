@@ -142,8 +142,12 @@ abbr gs "git status"
 abbr ga "git add ."
 abbr gm "git mergetool"
 
-# Jekyll stuff (For MarkDown)
+# Jekyll stuff (For Markdown)
 # export GEM_HOME="$HOME/gems"
 # export PATH="$HOME/gems/bin:$PATH"
+
+function jg
+	cd $(git rev-parse --show-toplevel) && bundle exec jekyll serve --trace
+end
 
 starship init fish | source

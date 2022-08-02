@@ -239,11 +239,15 @@ autocmd FileType markdown nnoremap <leader>m5 I##### <ESC>
 autocmd FileType markdown nnoremap <leader>m6 I###### <ESC>
 
 autocmd FileType markdown nnoremap <leader>mc IPAGE CHANGE: <ESC>gcc
-autocmd FileType markdown nnoremap <leader>ms I<span id="<esc>A"></span><ESC>
+autocmd FileType markdown nnoremap <leader>ms I<span id="p<esc>A"></span><ESC>
+
+autocmd FileType markdown nnoremap <leader>mc dipO```<+++><CR>```<ESC>P/<+++><CR>ca<
+
 " currently not functional
 " autocmd FileType markdown nnoremap <leader>mq :s/\\S\\.\\s/\\.\\r/g<CR>
 
 autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
+autocmd FileType markdown nnoremap <leader>mJ :!xdg-open http://127.0.0.1:4000 &<CR><CR>
 autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
 autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
@@ -353,6 +357,9 @@ elseif has("unix")
 	endif
 
 	call plug#begin()
+		" Treesitter
+		Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 		" LSP
 		Plug 'neovim/nvim-lspconfig'
 		Plug 'hrsh7th/nvim-compe' "This is deprecated, should try to figure out another autocomplete"
@@ -391,6 +398,9 @@ elseif has("unix")
 
 		" pairs
 		Plug 'jiangmiao/auto-pairs'
+
+		" Autotag
+		Plug 'windwp/nvim-ts-autotag'
 	call plug#end()
 	source $HOME/.config/nvim/plug.vim
 	lua require('user.lsp-config')
@@ -401,4 +411,5 @@ elseif has("unix")
 	source $HOME/.config/nvim/markdown-preview.vim
 	lua require('user.comment')
 	source $HOME/.config/nvim/which-key.vim
+	lua require('user.ts-autotag')
 endif

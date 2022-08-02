@@ -6,6 +6,7 @@ cp $HOME/.vim vim -r
 sudo rm -r vim/pack/themes/start/
 cp $HOME/.bashrc bashrc
 cp $HOME/.xprofile xprofile
+cp ~/.gitconfig gitconfig
 rm alacritty -r
 rm qutebrowser -r
 rm fish -r
