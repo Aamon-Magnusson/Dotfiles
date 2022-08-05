@@ -190,15 +190,15 @@ elseif has("unix")
 		Plug 'windwp/nvim-ts-autotag'
 	call plug#end()
 	" source $HOME/.config/nvim/plug.vim
-	lua require('user.lsp-config')
-	lua require('user.mason')
-	lua require('user.compe')
+	lua require('plugins.lsp-config')
+	lua require('plugins.mason')
+	lua require('plugins.compe')
 	source $HOME/.config/nvim/Plugins/compe.vim
 	" source $HOME/.config/nvim/formatter.vim
-	source $HOME/.config/nvim/Plugins/telescope.vim
+	lua require('plugins.telescope')
 	source $HOME/.config/nvim/Plugins/harpoon.vim
 	source $HOME/.config/nvim/Plugins/markdown-preview.vim
-	lua require('user.comment')
+	lua require('plugins.comment')
 	source $HOME/.config/nvim/Plugins/which-key.vim
-	lua require('user.ts-autotag')
+	lua require('plugins.ts-autotag')
 endif
