@@ -2,46 +2,7 @@
 -- Function declarations --
 ---------------------------
 
-function Map(mode, shortcut, command)
-  vim.api.nvim_set_keymap(
-		mode,
-		shortcut,
-		command,
-		{ noremap = true, silent = true }
-	)
-end
-
-function Nmap(shortcut, command)
-	Map(
-		'n',
-		shortcut,
-		command
-	)
-end
-
-function Imap(shortcut, command)
-	Map(
-		'i',
-		shortcut,
-		command
-	)
-end
-
-function Vmap(shortcut, command)
-	Map(
-		'v',
-		shortcut,
-		command
-	)
-end
-
-function Cmap(shortcut, command)
-	Map(
-		'c',
-		shortcut,
-		command
-	)
-end
+require "keyMapDef"
 
 -----------------
 -- Keybindings --
@@ -187,7 +148,7 @@ Nmap(
 ) ]]
 
 -- jump to placehoder
-Nmap(
+Nrmap(
 	'<leader>p',
 	'/<+++><CR><CR>ca<'
 )
@@ -199,25 +160,25 @@ Imap(
 )
 
 -- template keybindings
-Nmap(
+Nrmap(
 	',html',
 	':-1read $HOME/.config/nvim/Templates/template.html<CR>/<+++><CR>ca<'
 )
-Nmap(
+Nrmap(
 	',c',
 	':-1read $HOME/.config/nvim/Templates/template.c<CR>/<+++><CR>da<'
 )
-Nmap(
+Nrmap(
 	',py',
 	':-1read $HOME/.config/nvim/Templates/template.py<CR>/<+++><CR>da<'
 )
-Nmap(
+Nrmap(
 	',sh',
 	':-1read $HOME/.config/nvim/Templates/template.sh<CR>/<+++><CR>da<'
 )
 
 -- Remove highlights from searches
-Nmap(
+Nrmap(
 	'<CR>',
 	':nohlsearch<CR>'
 )
@@ -421,7 +382,7 @@ Nmap(
 	'I<span id="p<esc>A"></span><ESC>'
 )
 
-Nmap(
+Nrmap(
 	'<leader>mc',
 	'dipO```<+++><CR>```<ESC>P/<+++><CR>ca<'
 )
@@ -431,7 +392,7 @@ Nmap(
 
 Nmap(
 	'<leader>mz',
-	':!echo % \\| sed "s\\|\\.md\\|\\.pdf\\|g" \\| xargs zathura & <CR><CR>'
+	':!echo % | sed "s|\\.md|\\.pdf|g" | xargs zathura & <CR>'
 )
 Nmap(
 	'<leader>mJ',
@@ -439,16 +400,16 @@ Nmap(
 )
 Nmap(
 	'<leader>mx',
-	':!output=$(echo % \\| sed "s\\|\\.md\\|\\.pdf\\|g") && pandoc % -o $output <CR>'
+	':!output=$(echo % | sed "s|\\.md|\\.pdf|g") && pandoc % -o $output <CR>'
 )
 Nmap(
 	'<leader>mX',
-	':!output=$(echo % \\| sed "s\\|\\.md\\|\\.docx\\|g") && pandoc % -o $output <CR>'
+	':!output=$(echo % | sed "s|\\.md|\\.docx|g") && pandoc % -o $output <CR>'
 )
 
 Nmap(
 	'<leader>mg',
-	':!test .md \\|\\| touch .md \\| echo -e "[Go back](%)\\n\\n\\# " > .md <CR><CR>'
+	':!test .md || touch .md | echo -e "[Go back](%)\\n\\n\\# " > .md <CR><CR>'
 )
 
 Nmap(
@@ -511,6 +472,23 @@ function! FormatSentence()
 	endfunction
 ]])
 
+-- The following keymaps only work in regular visual mode
+
+Vmap(
+	'<leader>mi',
+	'A*<esc>gvo<esc>i*<esc>'
+)
+
+Vmap(
+	'<leader>mb',
+	'A**<esc>gvo<esc>i**<esc>'
+)
+
+Vmap(
+	'<leader>mc',
+	'A`<esc>gvo<esc>i`<esc>'
+)
+
 -- uml stuff
 Nmap(
 	'<leader>ug',
@@ -519,7 +497,7 @@ Nmap(
 -- The following only works for .puml
 Nmap(
 	'<leader>uv',
-	':!echo % \\| sed "s\\|\\.puml\\|\\.svg\\|g" \\| xargs sxiv & <CR><CR>'
+	':!echo % | sed "s|\\.puml|\\.svg|g" | xargs sxiv & <CR><CR>'
 )
 Nmap(
 	'<leader>ub',
