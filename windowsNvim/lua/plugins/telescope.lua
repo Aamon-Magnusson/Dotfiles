@@ -19,6 +19,15 @@ function Nmap(shortcut, command)
 	)
 end
 
+function Nrmap(shortcut, command)
+	vim.api.nvim_set_keymap(
+		'n',
+		shortcut,
+		command,
+		{ silent = true }
+	)
+end
+
 function Imap(shortcut, command)
 	Map(
 		'i',
