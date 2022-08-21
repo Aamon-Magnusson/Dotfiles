@@ -7,7 +7,7 @@ function Map(mode, shortcut, command)
 		mode,
 		shortcut,
 		command,
-		{ noremap = true, silent = true }
+		{ noremap = true }
 	)
 end
 
@@ -24,7 +24,7 @@ function Nrmap(shortcut, command)
 		'n',
 		shortcut,
 		command,
-		{ silent = true }
+		{}
 	)
 end
 

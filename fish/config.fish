@@ -150,4 +150,8 @@ function jg
 	cd $(git rev-parse --show-toplevel) && bundle exec jekyll serve --trace
 end
 
+function pwc
+	pwd | xclip -selection clipboard
+end
+
 starship init fish | source

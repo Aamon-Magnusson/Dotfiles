@@ -392,11 +392,7 @@ Nrmap(
 
 Nmap(
 	'<leader>mz',
-	':!echo % | sed "s|\\.md|\\.pdf|g" | xargs zathura & <CR>'
-)
-Nmap(
-	'<leader>mJ',
-	':!xdg-open http://127.0.0.1:4000 &<CR><CR>'
+	':!echo % | sed "s|\\.md|\\.pdf|g" | xargs zathura & <CR><CR>'
 )
 Nmap(
 	'<leader>mx',
@@ -487,6 +483,15 @@ Vmap(
 Vmap(
 	'<leader>mc',
 	'A`<esc>gvo<esc>i`<esc>'
+)
+
+Nmap(
+	'<leader>mJ',
+	':!xdg-open http://127.0.0.1:4000 &<CR><CR>'
+)
+Nmap(
+	'<leader>mo',
+	':!xdg-open http://127.0.0.1:4000$(pwd | sed "s|$(git rev-parse --show-toplevel)||") & <CR><CR> '
 )
 
 -- uml stuff
