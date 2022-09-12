@@ -27,6 +27,7 @@ vim.opt.showmatch = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.hidden = true
+vim.opt.laststatus = 3
 
 -- Make splits go to "slave side"
 vim.opt.splitbelow = true

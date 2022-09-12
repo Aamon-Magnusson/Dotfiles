@@ -230,6 +230,22 @@ Nmap(
 	'J',
 	'J0zz'
 )
+Nmap(
+	'<c-d>',
+	'<c-d>0zz'
+)
+Nmap(
+	'<c-u>',
+	'<c-u>0zz'
+)
+Nmap(
+	'H',
+	'H0zz'
+)
+Nmap(
+	'L',
+	'L0zz'
+)
 
 -- keep area selected when shifting
 Vmap(

@@ -17,6 +17,7 @@ git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dr
 sudo rm -r ~/.config/zathura/
 git clone https://github.com/dracula/zathura ~/.config/zathura/
 sudo npm i -g vim-language-server pyright bash-language-server live-server
+# yay -S r-languageserver
 cp bashrc ~/.bashrc
 [[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "# exec fish" >> ~/.zshrc
 cp xprofile $HOME/.xprofile

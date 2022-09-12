@@ -57,43 +57,43 @@ function ex --description "Function to detect compression to decompress the file
 end
 
 function vv
-	fzf | xargs nvim
+	fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim
 end
 
 function vh
-	cd ~/ && fzf | xargs nvim && cd -
+	cd ~/ && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
 end
 
 function vc
-	cd ~/.config && fzf | xargs nvim && cd -
+	cd ~/.config && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
 end
 
 function vp
-	cd ~/Programming && fzf | xargs nvim && cd -
+	cd ~/Programming && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
 end
 
 function vu
-	cd ~/Drives && fzf | xargs nvim && cd -
+	cd ~/Drives && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
 end
 
 function c
-	cd (fd --type d | fzf)
+	cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
 
 function ch
-	cd ~/ && cd (fd --type d | fzf)
+	cd ~/ && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
 
 function cc
-	cd ~/.config && cd (fd --type d | fzf)
+	cd ~/.config && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
 
 function cpr # realized that cp is a command
-	cd ~/Programming && cd (fd --type d | fzf)
+	cd ~/Programming && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
 
 function cu
-	cd ~/Drives && cd (fd --type d | fzf)
+	cd ~/Drives && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
 
 #export LESS_TERMCAP_mb=$'\E[01;32m'
@@ -111,7 +111,7 @@ alias df "df --human-readable"
 abbr p "sudo pacman"
 abbr ran "ranger"
 abbr v "nvim"
-alias h "set h (history | fzf); $h"
+alias h "set h (history | fzf --height=50 --border=rounded --prompt='>' --header='Select a command to re-run' --header-first --reverse ); $h"
 
 function h
 	set temp (history | fzf)
