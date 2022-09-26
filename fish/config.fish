@@ -142,7 +142,7 @@ abbr gs "git status"
 abbr ga "git add ."
 abbr gm "git mergetool"
 
-# Jekyll stuff (For Markdown)
+# Jekyll stuff (For Markdown) in bashrc
 # export GEM_HOME="$HOME/gems"
 # export PATH="$HOME/gems/bin:$PATH"
 

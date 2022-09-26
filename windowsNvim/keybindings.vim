@@ -87,6 +87,10 @@ nnoremap N Nzzzv
 nnoremap * *zzzv
 nnoremap # #zzzv
 nnoremap J J0zz
+nnoremap <c-d> <c-d>zz0
+nnoremap <c-u> <c-u>zz0
+nnoremap H H0zz
+nnoremap L L0zz
 
 " keep area selected when shifting
 vnoremap < <gv
