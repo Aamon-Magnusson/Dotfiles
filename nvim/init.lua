@@ -89,6 +89,8 @@ vim.cmd([[
 -- Plugins
 -------------
 
+-- It's dirty, and only works with current nvim, on linux systems, but I'm ok with that
+
 if (os.execute("test -d $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim") == 0)
 then
 	require('plugins')
@@ -108,7 +110,6 @@ then
 	-- source $HOME/.config/nvim/Plugins/which-key.vim
 	--lua require('plugins.ts-autotag')
 
-	-- print(fn.filereadable("$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"))
 else
 	os.execute("git clone --depth 1 https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim")
 
@@ -117,9 +118,19 @@ else
 	vim.cmd([[
 		:PackerInstall
 	]])
-end
 
--- if (os.execute("test -f $HOME/.local/share/nvim/site/pack/packer/start/packer.nvim") ~= 0)
--- 	then
--- 		print("Success")
--- 	end
+	require('plugins.lsp-config')
+	require('plugins.mason')
+	require('plugins.compe')
+	-- source $HOME/.config/nvim/Plugins/compe.vim
+	-- source $HOME/.config/nvim/formatter.vim
+	require('plugins.telescope')
+	require('plugins.harpoon')
+	--source $HOME/.config/nvim/Plugins/harpoon.vim
+	require('plugins.markdown-preview')
+	-- source $HOME/.config/nvim/Plugins/markdown-preview.vim
+	require('plugins.comment')
+	require('plugins.which-key')
+	-- source $HOME/.config/nvim/Plugins/which-key.vim
+	--lua require('plugins.ts-autotag')
+end
