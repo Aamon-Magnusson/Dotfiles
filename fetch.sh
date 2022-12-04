@@ -22,9 +22,3 @@ cp $HOME/.config/BetterDiscord BetterDiscord -r
 rm nvim/autoload -r
 sudo rm -rf nvim/pack/themes/start/
 cp ~/.tmux.conf tmux.conf
-
-# Create windows nvim config
-rm -r windowsNvim
-cp nvim windowsNvim -r
-sed -i 's $HOME/.config/nvim/ C:\\Users\\aamon\\AppData\\Local\\nvim\\ g' windowsNvim/init.vim
-sed -i 's Templates/ Templates\\ g' windowsNvim/init.vim

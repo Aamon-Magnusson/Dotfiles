@@ -21,7 +21,7 @@ git clone https://github.com/dracula/zathura ~/.config/zathura/
 sudo npm i -g vim-language-server pyright bash-language-server live-server
 # yay -S r-languageserver
 cp bashrc ~/.bashrc
-[[ ! $(grep "exec fish" $HOME/.zshrc) ]] && echo "# exec fish" >> ~/.zshrc
+usermod --shell /usr/bin/fish $USER
 cp xprofile $HOME/.xprofile
 chmod +x ~/.xprofile
 cp gitconfig ~/.gitconfig
@@ -30,4 +30,5 @@ cp qutebrowser ~/.config/ -r
 cp fish ~/.config/ -r
 cp ranger ~/.config/ -r
 cp BetterDiscord ~/.config/ -r
+cp starship.toml ~/.config/starship.toml
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
