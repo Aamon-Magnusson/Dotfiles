@@ -21,7 +21,7 @@ sudo ln -s /usr/bin/nvim /usr/bin/vi
 
 #set up pacman the way I like it
 sudo sed -i "s/#ParallelDownloads = 5/ParallelDownloads = 5/g" /etc/pacman.conf
-# I should try to find a way to add "ILoveCandy" into the pacman.conf
+# I should try to find a way to add "ILoveCandy" and "Color" into the pacman.conf
 
 # This section should not be used for security
 # Make root user's home shared with $USER

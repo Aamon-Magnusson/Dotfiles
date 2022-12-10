@@ -157,8 +157,8 @@ autocmd FileType markdown nnoremap <leader>mc dipO```<+++><CR>```<ESC>P/<+++><CR
 " currently not functional
 " autocmd FileType markdown nnoremap <leader>mq :s/\\S\\.\\s/\\.\\r/g<CR>
 
-autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
 autocmd FileType markdown nnoremap <leader>mJ :!xdg-open http://127.0.0.1:4000 &<CR><CR>
+autocmd FileType markdown nnoremap <leader>mz :!echo % \| sed "s\|\.md\|\.pdf\|g" \| xargs zathura & <CR><CR>
 autocmd FileType markdown nnoremap <leader>mx :!output=$(echo % \| sed "s\|\.md\|\.pdf\|g") && pandoc % -o $output <CR>
 autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\|\.docx\|g") && pandoc % -o $output <CR>
 
