@@ -43,7 +43,7 @@ autocmd BufWritePre * %s/\s\+$//e
 syntax enable
 "colorscheme dracula
 "hi Normal guibg=NONE ctermbg=NONE
-colorscheme habamax
+colorscheme torte
 
 " Netrw settings (WIP)
 let g:netrw_banner = 0
@@ -145,6 +145,8 @@ nnoremap <leader>l9 :call MoveLineToBottomOfList()<cr>
 " markdown code blocks
 let g:markdown_fenced_languages = ['java', 'bash', 'python', 'c']
 let java_ignore_javadoc=1
+
+nnoremap <leader>r :%s/\r//g<CR>
 
 " colored status bar
 " status bar colors
