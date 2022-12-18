@@ -37,13 +37,14 @@ set showmode
 set cursorline
 set cursorcolumn
 
+autocmd VimEnter * :Vex
 autocmd BufWritePre * %s/\s\+$//e
 
 "packadd! dracula
 syntax enable
 "colorscheme dracula
 "hi Normal guibg=NONE ctermbg=NONE
-colorscheme torte
+colorscheme elflord
 
 " Netrw settings (WIP)
 let g:netrw_banner = 0
@@ -147,6 +148,22 @@ let g:markdown_fenced_languages = ['java', 'bash', 'python', 'c']
 let java_ignore_javadoc=1
 
 nnoremap <leader>r :%s/\r//g<CR>
+
+" Quick fix list
+noremap <leader>ct :vimgrep /TODO/g **/*<CR>
+noremap <leader>cd :vimgrep /DONE/g **/*<CR>
+noremap <leader>cg :vimgrep //g **/*<CR>
+noremap <leader>cG :vimgrep //g **/*<left><left><left><left><left><left><left>
+vnoremap <leader>cg y:vimgrep /<C-r>"/g **/*<CR>
+noremap <leader>cf :.cc<CR>zz
+noremap <leader>co :copen<CR>
+noremap <leader>cc :ccl<CR>
+noremap <leader>cm :set modifiable<CR>
+noremap <leader>cn :cnext<CR>zz
+noremap <leader>cN :cprev<CR>zz
+noremap <leader>cp :cprev<CR>zz
+
+noremap <leader>tt :put =strftime('%A %d %B %Y')<CR>
 
 " colored status bar
 " status bar colors

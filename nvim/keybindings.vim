@@ -98,6 +98,7 @@ vnoremap > >gv
 vnoremap x xgv
 
 " Quickfix list
+noremap <leader>cG :vimgrep //g **/*<left><left><left><left><left><left><left>
 noremap <leader>cg :vimgrep //g **/*<CR>
 vnoremap <leader>cg y:vimgrep /<C-r>"/g **/*<CR>
 noremap <leader>cf :.cc<CR>
@@ -106,6 +107,7 @@ noremap <leader>cc :ccl<CR>
 noremap <leader>cm :set modifiable<CR>
 noremap <leader>cn :cnext<CR>zz
 noremap <leader>cN :cprev<CR>zz
+noremap <leader>cp :cprev<CR>zz
 
 " type in original string then right arrow for new string
 nnoremap <Leader>fr :%s///g<Left><Left><Left>

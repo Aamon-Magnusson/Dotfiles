@@ -263,6 +263,10 @@ Vmap(
 
 -- Quickfix list
 Nmap(
+	'<leader>cG',
+	':vimgrep //g **/*<left><left><left><left><left><left><left>'
+)
+Nmap(
 	'<leader>cg',
 	':vimgrep //g **/*<CR>'
 )
@@ -292,6 +296,10 @@ Nmap(
 )
 Nmap(
 	'<leader>cN',
+	':cprev<CR>zz'
+)
+Nmap(
+	'<leader>cp',
 	':cprev<CR>zz'
 )
 
