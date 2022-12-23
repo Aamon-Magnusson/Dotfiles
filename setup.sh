@@ -8,17 +8,13 @@ ln -s /run/media/$USER ~/Drives
 
 cp vimrc ~/.vimrc
 sudo rm ~/.vim -r
-sudo rm -r ~/.vim/pack/themes/start/dracula
 cp vim ~/.vim -r
-git clone https://github.com/dracula/vim.git ~/.vim/pack/themes/start/dracula
 sudo rm ~/.config/nvim -r
 cp nvim ~/.config -r
-git clone https://github.com/dracula/vim.git ~/.config/nvim/pack/themes/start/dracula
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 cp tmux.con ~/.tmux.conf
 sudo rm -r ~/.config/zathura/
 git clone https://github.com/dracula/zathura ~/.config/zathura/
-sudo npm i -g vim-language-server pyright bash-language-server live-server
 # yay -S r-languageserver
 cp bashrc ~/.bashrc
 usermod --shell /usr/bin/fish $USER
