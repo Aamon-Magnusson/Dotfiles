@@ -119,6 +119,17 @@ _G.packer_plugins = {
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
+  ["fine-cmdline.nvim"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/fine-cmdline.nvim",
+    url = "https://github.com/VonHeikemen/fine-cmdline.nvim"
+  },
+  ["focus.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nfocus\frequire\0" },
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/focus.nvim",
+    url = "https://github.com/beauwilliams/focus.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -128,6 +139,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/theprimeagen/harpoon"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -149,6 +165,11 @@ _G.packer_plugins = {
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -158,6 +179,22 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-surround"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0" },
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nvim-surround",
+    url = "https://github.com/kylechui/nvim-surround"
+  },
+  ["nvim-tetris"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nvim-tetris",
+    url = "https://github.com/alec-gibson/nvim-tetris"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -185,15 +222,15 @@ _G.packer_plugins = {
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["twilight.nvim"] = {
+    loaded = true,
+    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/twilight.nvim",
+    url = "https://github.com/folke/twilight.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
-  },
-  ["vim-surround"] = {
-    loaded = true,
-    path = "/home/aamonm/.local/share/nvim/site/pack/packer/start/vim-surround",
-    url = "https://github.com/tpope/vim-surround"
   },
   ["which-key.nvim"] = {
     loaded = true,
@@ -203,6 +240,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: focus.nvim
+time([[Config for focus.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nfocus\frequire\0", "config", "focus.nvim")
+time([[Config for focus.nvim]], false)
+-- Config for: nvim-surround
+time([[Config for nvim-surround]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18nvim-surround\frequire\0", "config", "nvim-surround")
+time([[Config for nvim-surround]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

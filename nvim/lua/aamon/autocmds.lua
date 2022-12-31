@@ -19,10 +19,10 @@ vim.cmd([[
 	autocmd InsertEnter * norm zz
 
 	" Open netrw if no files are given
-	augroup ProjectDrawer
-	autocmd!
-	autocmd VimEnter * if argc() == 0 | Explore! | endif
-	augroup END
+	" augroup ProjectDrawer
+	" autocmd!
+	" autocmd VimEnter * if argc() == 0 | :NvimTreeOpen | endif
+	" augroup END
 
 	" Auto-resize splits when Vim gets resized.
 	autocmd VimResized * wincmd =

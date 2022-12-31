@@ -1,6 +1,6 @@
 -- Manage splits
-vim.api.nvim_set_keymap( "n", "<leader>n", ":Vex<CR>", {noremap = true, silent = true} )
-vim.api.nvim_set_keymap( "n", "<leader>N", ":Sex<CR>", {noremap = true, silent = true} )
+vim.api.nvim_set_keymap( "n", "<leader>n", ":vs<CR>", {noremap = true, silent = true} )
+vim.api.nvim_set_keymap( "n", "<leader>N", ":sp<CR>", {noremap = true, silent = true} )
 -- Close vim
 vim.api.nvim_set_keymap( "n", "<leader>q", ":wqa<CR>", {noremap = true, silent = true} )
 vim.api.nvim_set_keymap( "n", "<leader>Q", ":qa!<CR>", {noremap = true, silent = true} )
