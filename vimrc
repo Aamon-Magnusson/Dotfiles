@@ -28,7 +28,7 @@ set ignorecase
 set smartcase
 set incsearch
 set hlsearch
-nnoremap <CR> :nohlsearch<CR>
+nnoremap <silent> <CR> :nohlsearch<CR>
 set relativenumber
 set nu
 set lazyredraw
@@ -38,12 +38,13 @@ set cursorline
 set cursorcolumn
 
 autocmd VimEnter * :Vex
-autocmd BufWritePre * %s/\s\+$//e
+"autocmd BufWritePre * %s/\s\+$//e
+set timeoutlen=2000
 
 "packadd! dracula
 syntax enable
 "colorscheme dracula
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 colorscheme elflord
 
 " Netrw settings (WIP)
@@ -52,15 +53,37 @@ let g:netrw_liststyle = 3
 let g:netrw_altv = 1
 let g:netrw_altfile = 1
 let g:netrw_browse_split = 4
-let g:netrw_winsize = 15
+let g:netrw_winsize = 20
 let g:netrw_compress = "zip"
 
 " Open netrw to aid in splits
-map <leader>n :Vex<CR>
+let g:NetrwIsOpen=0
+
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+" Add your own mapping. For example:
+noremap <silent> <leader><space> :call ToggleNetrw()<CR>
+
+map <silent> <leader>n :vs<CR>
+map <silent> <leader>N :sp<CR>
 
 " Close all of vim even with splits open
-map <leader>q :wqa<CR>
-map <leader>Q :qa!<CR>
+map <silent> <leader>q :wqa<CR>
+map <silent> <leader>Q :qa!<CR>
 
 " Keep it centered
 autocmd InsertEnter * norm zz
@@ -81,18 +104,18 @@ vmap x xgv
 nmap Y y$
 
 " Copy paste (Must be gvim)
-vnoremap <leader>c "*y :let @+=@*<CR>
-map <leader>v "+p
+vnoremap <silent> <leader>y "*y :let @+=@*<CR>
+map <silent> <leader>v "+p
 
 " Enable spell check
-map <leader>se :set spell spelllang=en_ca<CR>
-map <leader>sf :set spell spelllang=fr_ca<CR>
-map <leader>so :set nospell<CR>
+map <silent> <leader>se :set spell spelllang=en_ca<CR>
+map <silent> <leader>sf :set spell spelllang=fr_ca<CR>
+map <silent> <leader>so :set nospell<CR>
 " Fix last spelling error
 function! FixLastSpellingError()
   normal! mm[s1z=`m"
 endfunction
-nnoremap <leader>sl :call FixLastSpellingError()<cr>
+nnoremap <silent> <leader>sl :call FixLastSpellingError()<cr>
 
 " Open both quotes or brakets at once
 inoremap " ""<left>
@@ -102,17 +125,17 @@ inoremap [ []<left>
 inoremap < <><left>
 
 " jump to placehoder
-map <leader>p /<+++><CR>da<i
+map <leader>p /<+++><CR><CR>ca<
 " Place placeholder
 inoremap ;p <+++>
 
 " Moving lines up or down in every mode
-vnoremap J :m '>+1<CR>gv=gv
-vnoremap K :m '<-2<CR>gv=gv
-inoremap <C-j> <esc>:m .+1<CR>==i
-inoremap <C-k> <esc>:m .-2<CR>==i
-nnoremap <leader>j :m .+1<CR>==
-nnoremap <leader>k :m .-2<CR>==
+vnoremap <silent> J :m '>+1<CR>gv=gv
+vnoremap <silent> K :m '<-2<CR>gv=gv
+inoremap <silent> <C-j> <esc>:m .+1<CR>==i
+inoremap <silent> <C-k> <esc>:m .-2<CR>==i
+nnoremap <silent> <leader>j :m .+1<CR>==
+nnoremap <silent> <leader>k :m .-2<CR>==
 
 autocmd FileType markdown nnoremap <leader>mi i![](<+++>)<Space><CR><CR><+++><Esc>kkF]i
 autocmd FileType markdown nnoremap <leader>ml i[](<+++>)<Space><+++><Esc>F]i
@@ -135,13 +158,13 @@ autocmd FileType markdown nnoremap <leader>mX :!output=$(echo % \| sed "s\|\.md\
 function! MoveLineToTopOfList()
   normal! kmmjdd{p`m
 endfunction
-nnoremap <leader>l0 :call MoveLineToTopOfList()<cr>
+nnoremap <silent> <leader>l0 :call MoveLineToTopOfList()<cr>
 
 " Move line to the bottom of a paragraph
 function! MoveLineToBottomOfList()
   normal! kmmjdd}P`m
 endfunction
-nnoremap <leader>l9 :call MoveLineToBottomOfList()<cr>
+nnoremap <silent> <leader>l9 :call MoveLineToBottomOfList()<cr>
 
 " markdown code blocks
 let g:markdown_fenced_languages = ['java', 'bash', 'python', 'c']
@@ -149,21 +172,33 @@ let java_ignore_javadoc=1
 
 nnoremap <leader>r :%s/\r//g<CR>
 
-" Quick fix list
-noremap <leader>ct :vimgrep /TODO/g **/*<CR>
-noremap <leader>cd :vimgrep /DONE/g **/*<CR>
-noremap <leader>cg :vimgrep //g **/*<CR>
-noremap <leader>cG :vimgrep //g **/*<left><left><left><left><left><left><left>
-vnoremap <leader>cg y:vimgrep /<C-r>"/g **/*<CR>
-noremap <leader>cf :.cc<CR>zz
-noremap <leader>co :copen<CR>
-noremap <leader>cc :ccl<CR>
-noremap <leader>cm :set modifiable<CR>
-noremap <leader>cn :cnext<CR>zz
-noremap <leader>cN :cprev<CR>zz
-noremap <leader>cp :cprev<CR>zz
+" Place todo entry
+noremap <silent> <leader>td I-<space>[<space>]<space>
+noremap <silent> <leader>tl ^la[<space>]<space>
 
-noremap <leader>tt :put =strftime('%A %d %B %Y')<CR>
+" Quick fix list
+noremap <silent> <leader>ct :vimgrep /TODO\\|\[ ] /g **/*<CR>
+noremap <silent> <leader>cp :vimgrep /TODO\\|\[~] /g **/*<CR>
+noremap <silent> <leader>cd :vimgrep /DONE\\|\[X] /g **/*<CR>
+noremap <silent> <leader>ctm :vimgrep /\%(\%3l\)Meeting/g **/*<CR>
+noremap <silent> <leader>cts :vimgrep /\%(\%3l\)Scan/g **/*<CR>
+noremap <silent> <leader>ctn :vimgrep /\%(\%3l\)Note/g **/*<CR>
+noremap <leader>ctt :vimgrep /\%(\%3l\)/g **/*<left><left><left><left><left><left><left>
+noremap <silent> <leader>cg :vimgrep //g **/*<CR>
+noremap <leader>cG :vimgrep //g **/*<left><left><left><left><left><left><left>
+vnoremap <silent> <leader>cg y:vimgrep /<C-r>"/g **/*<CR>
+noremap <silent> <leader>cf :.cc<CR>zz
+noremap <silent> <leader>co :copen<CR>
+noremap <silent> <leader>cc :ccl<CR>
+noremap <silent> <leader>cm :set modifiable<CR>
+noremap <silent> <leader>cn :cnext<CR>zz
+noremap <silent> <leader>cN :cprev<CR>zz
+"noremap <silent> <leader>cp :cprev<CR>zz
+
+noremap <silent> <leader>tt :put =strftime('%A %d %B %Y')<CR>
+
+" Open vimrc
+noremap <silent> <leader>ev :e $MYVIMRC<CR>
 
 " colored status bar
 " status bar colors
