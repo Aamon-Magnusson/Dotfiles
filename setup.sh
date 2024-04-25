@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive-most zathura zathura-pdf-mupdf sxiv libreoffice-still plantuml
+	sudo pacman -S --needed gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive-most zathura zathura-pdf-mupdf sxiv libreoffice-still plantuml vim fd lsd github-cli
 fi
 
 ln -s /run/media/$USER ~/Drives
@@ -12,7 +12,7 @@ cp vim ~/.vim -r
 sudo rm ~/.config/nvim -r
 cp nvim ~/.config -r
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-cp tmux.con ~/.tmux.conf
+cp tmux.conf ~/.tmux.conf
 sudo rm -r ~/.config/zathura/
 git clone https://github.com/dracula/zathura ~/.config/zathura/
 # yay -S r-languageserver
