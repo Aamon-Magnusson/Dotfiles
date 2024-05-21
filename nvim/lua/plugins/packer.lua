@@ -14,7 +14,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
 	use { 'wbthomason/packer.nvim' }
 	use {
-		'nvim-telescope/telescope.nvim', tag = '0.1.0',
+		'nvim-telescope/telescope.nvim', tag = '0.1.x',
 		-- or                            , branch = '0.1.x',
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
@@ -56,14 +56,14 @@ return require('packer').startup(function(use)
 		requires = {
 			'nvim-tree/nvim-web-devicons', -- optional, for file icons
 		},
-		tag = 'nightly' -- optional, updated every week. (see issue #1193)
+		--tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	use {
-		'VonHeikemen/fine-cmdline.nvim',
-		requires = {
-			{ 'MunifTanjim/nui.nvim' }
-		}
-	}
+	-- use {
+	-- 	'VonHeikemen/fine-cmdline.nvim',
+	-- 	requires = {
+	-- 		{ 'MunifTanjim/nui.nvim' }
+	-- 	}
+	-- }
 	use {
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -78,6 +78,9 @@ return require('packer').startup(function(use)
 	use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 	use { "alec-gibson/nvim-tetris" }
 	use { "folke/twilight.nvim" }
+	use { "folke/zen-mode.nvim", config = function () require("zen-mode").setup({
+		-- configuration here, or leave empty to use defaults
+	}) end }
 
 	if packer_bootstrap then
 		require('packer').sync()

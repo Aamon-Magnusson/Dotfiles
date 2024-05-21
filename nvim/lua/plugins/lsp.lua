@@ -3,7 +3,7 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
+lsp.configure('lua_ls', {
     settings = {
         Lua = {
             diagnostics = {
@@ -34,3 +34,6 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
+require("mason").setup()
+require'lspconfig'.lua_ls.setup{}

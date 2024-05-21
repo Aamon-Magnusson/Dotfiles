@@ -66,6 +66,9 @@ vim.api.nvim_set_keymap( "n", "<leader>r", ":%s/\r//g<CR>", {noremap = true, sil
 
 -- I'll add these back in eventually, I just don't feel like it right now
 -- -- Markdown keymaps
+vim.api.nvim_set_keymap( "n", "<leader>mz", ":!echo % | sed 's|\\.md|\\.pdf|g' | xargs zathura & <CR><CR>", {noremap = true, silent = true} )
+vim.api.nvim_set_keymap( "n", "<leader>mx", ":!output=$(echo % | sed 's|\\.md|\\.pdf|g') && pandoc % -o $output <CR>", {noremap = true, silent = true} )
+vim.api.nvim_set_keymap( "n", "<leader>mX", ":!output=$(echo % | sed 's|\\.md|\\.docx|g') && pandoc % -o $output <CR>", {noremap = true, silent = true} )
 -- -- autocmd FileType markdown nnoremap <leader>mt i---<CR>title:<Space><+++><CR>author:<Space>"Aamon Magnusson"<CR>geometry:<CR>-<Space>top=30mm<CR>-<Space>left=20mm<CR>-<Space>right=20mm<CR>-<Space>bottom=30mm<CR><CR><BS>---<CR><CR><+++><ESC>/<+++><CR>ca>
 -- --header-includes:<Space>\|<CR><Tab>\usepackage{float}<CR>\let\origfigure\figure<CR>\let\endorigfigure\endfigure<CR>\renewenvironment{figure}[1][2]<Space>{<CR><Tab>\expandafter\origfigure\expandafter[H]<CR><BS>}<Space>{<CR><Tab>\endorigfigure<CR><BS>}"
 --
@@ -126,18 +129,6 @@ vim.api.nvim_set_keymap( "n", "<leader>r", ":%s/\r//g<CR>", {noremap = true, sil
 -- -- currently not functional
 -- -- autocmd FileType markdown nnoremap <leader>mq :s/\\S\\.\\s/\\.\\r/g<CR>
 --
--- Nmap(
--- 	'<leader>mz',
--- 	':!echo % | sed "s|\\.md|\\.pdf|g" | xargs zathura & <CR><CR>'
--- )
--- Nmap(
--- 	'<leader>mx',
--- 	':!output=$(echo % | sed "s|\\.md|\\.pdf|g") && pandoc % -o $output <CR>'
--- )
--- Nmap(
--- 	'<leader>mX',
--- 	':!output=$(echo % | sed "s|\\.md|\\.docx|g") && pandoc % -o $output <CR>'
--- )
 --
 -- Nmap(
 -- 	'<leader>mg',
