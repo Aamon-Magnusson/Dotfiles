@@ -1,7 +1,7 @@
 #! /bin/bash
 
 if [ $(which pacman) ];then
-	sudo pacman -S --needed gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive zathura zathura-pdf-mupdf sxiv libreoffice-still plantuml github-cli
+	sudo pacman -S gvim alacritty fish ranger lsd neovim fd fzf npm ccls pandoc lua-language-server texlive zathura zathura-pdf-mupdf sxiv libreoffice-still plantuml github-cli
 fi
 
 ln -s /run/media/$USER ~/Drives

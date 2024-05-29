@@ -48,5 +48,5 @@ makepkg -si
 
 # Optimus-Manager
 # sudo pacman -S nvidia
-# sudo yay -S optimus-manager
+# yay -S optimus-manager
 

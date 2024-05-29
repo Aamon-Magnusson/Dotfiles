@@ -95,6 +95,9 @@ end
 function cu
 	cd ~/Drives && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end
+function cgp
+	cd (git rev-parse --show-toplevel) && cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
+end
 
 #export LESS_TERMCAP_mb=$'\E[01;32m'
 #export LESS_TERMCAP_md=$'\E[01;32m'
@@ -132,6 +135,7 @@ abbr cdw "cd ~/Programming/AamonDwm"
 abbr cdf "cd ~/Programming/Dotfiles"
 abbr cdu "cd ~/Drives"
 abbr cdc "cd ~/.config"
+alias cg "cd (git rev-parse --show-toplevel)"
 
 # git aliases
 abbr gc "git commit -a"
