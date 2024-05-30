@@ -19,7 +19,11 @@ return require('packer').startup(function(use)
 		requires = { { 'nvim-lua/plenary.nvim' } }
 	}
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-	use { 'theprimeagen/harpoon' }
+	use {
+		"theprimeagen/harpoon",
+		branch = "harpoon2",
+		requires = { { 'nvim-lua/plenary.nvim' } }
+	}
 	use { 'mbbill/undotree' }
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -44,6 +48,7 @@ return require('packer').startup(function(use)
 	}
 	use { 'Mofiqul/dracula.nvim' }
 	vim.cmd [[colorscheme dracula]]
+	use { 'kyazdani42/nvim-web-devicons' }
 	use {
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
@@ -58,12 +63,6 @@ return require('packer').startup(function(use)
 		},
 		--tag = 'nightly' -- optional, updated every week. (see issue #1193)
 	}
-	-- use {
-	-- 	'VonHeikemen/fine-cmdline.nvim',
-	-- 	requires = {
-	-- 		{ 'MunifTanjim/nui.nvim' }
-	-- 	}
-	-- }
 	use {
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -73,10 +72,12 @@ return require('packer').startup(function(use)
 			})
 		end
 	}
-	-- use { "jubnzv/mdeval.nvim" }
 	use { 'lukas-reineke/indent-blankline.nvim' }
-	use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
+	require("ibl").setup {
+		scope = {enabled = true, exclude = { language = { "lua", "python", "bash" } }},
+	}
 	use { "alec-gibson/nvim-tetris" }
+	use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
 	use { "folke/twilight.nvim" }
 	use { "folke/zen-mode.nvim", config = function () require("zen-mode").setup({
 		-- configuration here, or leave empty to use defaults
