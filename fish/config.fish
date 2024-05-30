@@ -76,6 +76,10 @@ function vu
 	cd ~/Drives && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
 end
 
+function vg
+	cd (git rev-parse --show-toplevel) && fzf --height=50 --border=rounded --prompt=">" --header="Select a file to open with nvim" --header-first --reverse | xargs nvim && cd -
+end
+
 function c
 	cd (fd --type d | fzf --height=50 --border=rounded --prompt=">" --header="Select a directory to cd to" --header-first --reverse )
 end

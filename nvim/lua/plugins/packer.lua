@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
 			require("blame").setup()
 		end
 	}
+	use { "airblade/vim-gitgutter" }
 
 	if packer_bootstrap then
 		require('packer').sync()
