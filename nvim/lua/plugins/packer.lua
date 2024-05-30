@@ -82,6 +82,12 @@ return require('packer').startup(function(use)
 	use { "folke/zen-mode.nvim", config = function () require("zen-mode").setup({
 		-- configuration here, or leave empty to use defaults
 	}) end }
+	use {
+		"FabijanZulj/blame.nvim",
+		config = function()
+			require("blame").setup()
+		end
+	}
 
 	if packer_bootstrap then
 		require('packer').sync()
