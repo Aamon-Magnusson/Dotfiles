@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
 	}
 	use { 'lukas-reineke/indent-blankline.nvim' }
 	require("ibl").setup {
-		scope = {enabled = true, exclude = { language = { "lua", "python", "bash" } }},
+		scope = { enabled = true },
 	}
 	use { "alec-gibson/nvim-tetris" }
 	use { "beauwilliams/focus.nvim", config = function() require("focus").setup() end }
@@ -88,6 +88,8 @@ return require('packer').startup(function(use)
 		end
 	}
 	use { "airblade/vim-gitgutter" }
+	use { "norcalli/nvim-colorizer.lua" }
+	require("colorizer").setup()
 
 	if packer_bootstrap then
 		require('packer').sync()
