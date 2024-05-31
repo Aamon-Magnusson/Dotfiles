@@ -53,7 +53,6 @@ return require('packer').startup(function(use)
 		'nvim-lualine/lualine.nvim',
 		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
 	}
-	use { 'numToStr/Comment.nvim' }
 	use { "folke/which-key.nvim" }
 	use { 'm4xshen/autoclose.nvim' }
 	use {
